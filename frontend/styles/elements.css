@@ -1,0 +1,318 @@
+:root {
+  --border-radius: 0.25rem;
+  --border-width: 1px;
+  --font-size: 1.07rem;
+  --main-line-height: 1.55;
+  --max-body-width: 46rem;
+}
+
+:root {
+  --background-color: #f3f0e9;
+  --bg-dark-color: #e6e6e6;
+  --border-color: #dbdbdb;
+  --border-hover-color: #b5b5b5;
+  --code-background-color: var(--highlighted-background-color);
+  --code-text-color: #29a0ff;
+  --danger-color: #f14668;
+  --danger-hover-color: #f03a5f;
+  --danger-text-background-color: #fde0e6;
+  --danger-text-color: #fff;
+  --highlighted-background-color: #f5f5f5;
+  --link-active-color: #363636;
+  --link-color: #443d8e;
+  --link-hover-color: #212121;
+  --link-visited-color: #443d8e;
+  --success-color: #48c774;
+  --success-hover-color: #3ec46d;
+  --success-text-background-color: #effaf3;
+  --success-text-color: #fff;
+  --text-color-less-contrast: #595959;
+  --text-color-more-contrast: #363636;
+  --text-color: #363636;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background-color: #202124;
+    --bg-dark-color: #17171a;
+    --border-color: #5f6267;
+    --border-hover-color: #bcbebd;
+    --code-background-color: #292b2e;
+    --code-text-color: #63b9ff;
+    --danger-color: #770018;
+    --danger-hover-color: #6b0015;
+    --danger-text-background-color: #770018;
+    --danger-text-color: #fff;
+    --highlighted-background-color: #292b2e;
+    --link-active-color: #fff;
+    --link-color: #38b3fb;
+    --link-hover-color: #c7f3ff;
+    --link-visited-color: #38b3fb;
+    --success-color: #006624;
+    --success-hover-color: #006122;
+    --success-text-background-color: #006624;
+    --success-text-color: #fff;
+    --text-color-less-contrast: #999;
+    --text-color-more-contrast: #e3e3e3;
+    --text-color: #fff;
+  }
+}
+
+*,
+::before,
+::after {
+  box-sizing: border-box;
+}
+
+html {
+  line-height: 1.15; /* 1 */
+  -webkit-text-size-adjust: 100%; /* 2 */
+}
+
+body {
+  margin: 0;
+  font-family:
+    system-ui,
+    -apple-system, /* Firefox supports this but not yet `system-ui` */
+    'Segoe UI',
+    Roboto,
+    Helvetica,
+    Arial,
+    sans-serif,
+    'Apple Color Emoji',
+    'Segoe UI Emoji';
+  display: flex;
+  flex-direction: column;
+  width: calc(100% - 1rem);
+  max-width: var(--max-body-width);
+  min-height: 100%;
+  margin: 0 auto;
+  overflow-wrap: break-word;
+  color: var(--text-color);
+  background-color: var(--background-color);
+  color: var(--text-color);
+  font-size: var(--font-size);
+}
+
+hr {
+  height: 0; /* 1 */
+  color: inherit; /* 2 */
+}
+
+b,
+strong {
+  font-weight: bolder;
+}
+
+code,
+kbd,
+pre {
+  font-family:
+    ui-monospace,
+    SFMono-Regular,
+    Consolas,
+    'Liberation Mono',
+    Menlo,
+    monospace; /* 1 */
+  font-size: 1em; /* 2 */
+}
+
+small {
+  font-size: 85% !important;
+}
+
+html {
+  height: 100%;
+  line-height: 1.4;
+}
+
+h1 {
+  font-size: 1.5em;
+}
+
+h1,
+h2,
+h3 {
+  line-height: 1.15;
+}
+
+main {
+  flex-grow: 1;
+}
+
+pre {
+  padding: 1rem;
+
+  /* Prism hack */
+  /* stylelint-disable declaration-no-important */
+  margin-top: 1rem !important;
+  margin-bottom: 1rem !important;
+  /* stylelint-enable */
+  overflow-x: auto;
+  line-height: 1.15;
+}
+
+code {
+  padding: 0.25rem;
+}
+
+pre code {
+  font-size: 1.0rem;
+  padding: unset;
+}
+
+kbd {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 1.5rem;
+  max-width: calc(100% - 0.1rem * 2);
+  min-height: 1.5rem;
+  padding: 0 0.25rem;
+  margin: 0 0.1rem;
+  overflow: hidden;
+}
+
+kbd kbd {
+  min-width: unset;
+  min-height: unset;
+  padding: 0;
+  margin: 0;
+}
+
+kbd kbd:not(:first-child) {
+  padding-left: 0.25rem;
+}
+
+kbd kbd:not(:last-child) {
+  padding-right: 0.25rem;
+}
+
+blockquote > p:first-child {
+  margin-top: 0;
+}
+
+blockquote {
+  padding: 1rem 2rem;
+  margin-right: 0;
+  margin-left: 0;
+}
+
+blockquote > p:last-child {
+  margin-bottom: 0;
+}
+
+footer {
+  margin-top: 1rem;
+}
+
+body > header {
+  text-align: center;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  border-bottom: var(--border-width) solid var(--border-color);
+}
+
+li {
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+@media (max-width: 50rem) {
+  pre {
+    width: calc(100% + 1rem);
+
+    padding-right: 0.5rem;
+    padding-left: 0.5rem;
+    margin-left: -0.5rem;
+  }
+}
+
+pre {
+  background-color: var(--code-background-color);
+  border-radius: 0;
+}
+
+code {
+  color: var(--code-text-color);
+  background-color: var(--code-background-color);
+}
+
+pre code {
+  background-color: inherit;
+}
+
+a,
+a code {
+  color: var(--link-color);
+  text-decoration: none;
+}
+
+a:visited,
+a:visited code {
+  color: var(--link-visited-color);
+}
+
+a:hover,
+a:hover code {
+  color: var(--link-hover-color);
+}
+
+a:active,
+a:active code {
+  color: var(--link-active-color);
+}
+
+kbd {
+  background-color: var(--highlighted-background-color);
+  border: var(--border-width) solid var(--border-hover-color);
+  border-radius: var(--border-radius);
+  box-shadow: inset 0 0 0 0.2rem var(--background-color);
+}
+
+kbd kbd {
+  border: unset;
+  border-radius: 0;
+  box-shadow: inset 0 -0.2rem 0 0 var(--background-color),
+    inset 0 0.2rem 0 0 var(--background-color);
+}
+
+blockquote {
+  background-color: var(--highlighted-background-color);
+  border-left: 0.5rem solid var(--border-color);
+}
+
+body > footer {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  border-top: var(--border-width) solid var(--border-color);
+  text-align: center;
+}
+
+hr {
+  border-color: var(--border-color);
+  border-style: solid;
+  border-width: var(--border-width) 0 0;
+}
+
+main p, main ul {
+  line-height: var(--main-line-height);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin-top: 2rem;
+}
+
+article > p:first-of-type {
+  margin-top: 1.8rem;
+}
+
+:not(a) > strong, h1, h2, h3, h4, h5, h6 {
+  color: var(--text-color-more-contrast);
+}
+
+/* https://stackoverflow.com/a/53364612/4009384  */
+html {
+  visibility: visible;
+  opacity: 1;
+}

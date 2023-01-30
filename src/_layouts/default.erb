@@ -1,0 +1,15 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <%= render "head" %>
+  </head>
+  <body class="<%= resource.data.layout %> <%= resource.data.page_class %>">
+    <%= render "header", metadata: site.metadata %>
+
+    <main>
+      <%= yield %>
+    </main>
+
+    <%= render "footer", metadata: site.metadata %>
+  </body>
+</html>

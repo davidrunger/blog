@@ -1,0 +1,9 @@
+---
+layout: default
+---
+
+<h1><%= resource.data.title %></h1>
+
+<%= yield %>
+
+<%= render "page_selector" if resource.data.pagination %>

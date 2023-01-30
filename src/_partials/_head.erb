@@ -1,0 +1,15 @@
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no" />
+<style>html { visibility: hidden; opacity:0; }</style>
+<% if resource.data.skip_seo_title %>
+  <title>David Runger : Blog</title>
+  <%= seo(title: false) %>
+<% else %>
+  <%= seo %>
+<% end %>
+<link rel="icon" type="image/png" sizes="32x32" href="<%= site.base_path %>/images/favicon/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="<%= site.base_path %>/images/favicon/favicon-16x16.png">
+<link rel="stylesheet" href="<%= webpack_path :css %>" data-turbo-track="reload" />
+<% if !ENV.key?('DISABLE_LIVE_RELOAD') %>
+  <%= live_reload_dev_js %>
+<% end %>

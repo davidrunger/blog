@@ -1,0 +1,63 @@
+@import "elements.css";
+@import "pygments.css";
+
+.width-max-content {
+  width: max-content;
+}
+
+.posts-li-subtitle {
+  color: var(--text-color) !important;
+}
+
+.posts-li-date {
+  color: var(--text-color-less-contrast) !important;
+}
+
+.subtitle {
+  margin: .25rem 0 .15rem 0
+}
+
+.lowlighted {
+  color: var(--text-color-less-contrast) !important;
+}
+
+.depressed {
+  background-color: var(--bg-dark-color);
+}
+
+.posts-ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.posts-ul a {
+  display: block;
+}
+
+.posts-ul li * {
+  margin-bottom: -0.2rem;
+}
+
+.posts-list-item {
+  margin-bottom: 1.5rem;
+}
+
+.pagination-ul {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.pagination-ul li {
+  display: inline;
+  margin-top: 1rem;
+
+  & span {
+    padding: .2rem .25rem .2rem .5rem;
+  }
+}
+
+.pagination-ul li:first-of-type {
+  & span {
+    padding-left: 0;
+  }
+}

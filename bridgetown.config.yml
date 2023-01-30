@@ -1,0 +1,21 @@
+# For technical reasons, this file is *NOT* reloaded automatically when you use
+# `bin/bridgetown start`. If you change this file, please restart the server process.
+
+permalink: /:slug.*
+base_path: /blog
+template_engine: erb
+
+pagination:
+  enabled: true
+  per_page: 10
+
+timezone: America/Chicago
+
+defaults:
+  - values:
+      image: /images/davidrunger.jpg
+  - scope:
+      collection: "posts"
+    values:
+      layout: "post"
+      author: "David Runger"

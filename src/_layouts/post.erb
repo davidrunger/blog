@@ -1,0 +1,17 @@
+---
+layout: default
+---
+
+<article>
+  <h1 style="margin-bottom: .1rem">
+    <%= resource.data.title %>
+  </h1>
+  <h3 class="lowlighted subtitle">
+    <%= resource.data.subtitle %>
+  </h3>
+  <small class="lowlighted">
+    <%= resource.date.strftime("%B %d, %Y") %> · <%= resource.data.author %>
+  </small>
+
+  <%= yield %>
+</article>

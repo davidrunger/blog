@@ -1,0 +1,43 @@
+<% if paginator.total_pages > 1 %>
+  <ul class="pagination-ul">
+    <% if paginator.previous_page %>
+      <li><a href="<%= paginator.previous_page_path %>"><span>
+        &lt; Newer
+      </a></span></li>
+    <% else %>
+      <li class="lowlighted"><span>
+        &lt; Newer
+      </span></li>
+    <% end %>
+    <% (1..paginator.total_pages).each do |page_number| %>
+      <% if page_number == 1 && ["/"].include?(resource.relative_url) %>
+        <li class="lowlighted depressed"><span>
+          1
+        </span></li>
+      <% elsif resource.relative_url.start_with?("/page/#{page_number}/") %>
+        <li class="lowlighted depressed"><span>
+          <%= page_number %>
+        </span></li>
+      <% else %>
+        <% if page_number == 1 %>
+          <li><a href="/<%= resource.data.pagination.collection %>/"><span>
+            1
+          </a></span></li>
+        <% else %>
+          <li><a href="/<%= resource.data.pagination.collection %>/page/<%= page_number %>/"><span>
+            <%= page_number %>
+          </a></span></li>
+        <% end %>
+      <% end %>
+    <% end %>
+    <% if paginator.next_page %>
+      <li><a href="<%= paginator.next_page_path %>"><span>
+        Older &gt;
+      </a></span></li>
+    <% else %>
+      <li class="lowlighted"><span>
+        Older &gt;
+      </span></li>
+    <% end %>
+  </ul>
+<% end %>
