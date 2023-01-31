@@ -79,7 +79,7 @@ are a few reasons for this, the biggest of which are probably test speed and tes
 
 When writing unit tests in Ruby, external HTTP requests that are made by the Ruby application can be
 mocked using the most excellent [`webmock`](https://github.com/bblimke/webmock/tree/v3.18.1) gem.
-That works to mock requests that are made from the Ruby app in question to an external server.
+WebMock can mock requests that are made from the Ruby app in question to an external server.
 However, it doesn't allow us to mock a request from a Chrome browser that's being driven in a
 feature test to an external server (in this example, a Google server for OAuth).
 
