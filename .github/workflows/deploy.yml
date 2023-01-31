@@ -28,7 +28,7 @@ jobs:
         run: yarn install --check-files --ignore-optional
 
       - name: Build
-        run: bin/bridgetown deploy && cd output && mkdir blog && mv * blog 2>/dev/null
+        run: bin/deploy
         env:
           DISABLE_LIVE_RELOAD: 1
           DISABLE_SOURCE_MAPS: 1
