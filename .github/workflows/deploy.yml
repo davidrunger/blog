@@ -22,7 +22,7 @@ jobs:
           node-version: 18.12.1
 
       - name: Install Gems
-        run: bundle Install
+        run: bundle install
 
       - name: Install JavaScript Packages
         run: yarn install --check-files --ignore-optional
