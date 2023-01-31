@@ -64,11 +64,11 @@ to reproduce the bug and ensure that particular bug would never be reintroduced.
 
 ## Tests should be able to run (and pass) without an Internet connection
 
-A relatively straightforward way to write such a test would be to write a feature test that visits
-my app's login page (hosted by a test server), clicks the "Sign in with Google" button, and then
-checks that the browser follows the redirect to a Google login page, and that the page has some
-content like "Google will share your name, email address, language preference, and profile picture
-with davidrunger.com".
+A relatively straightforward way to write such a regression test for the aforementioned bug would be
+to write a feature test that visits my app's login page (hosted by a test server), clicks the "Sign
+in with Google" button, and then checks that the browser follows the redirect to a Google login
+page, and that the page has some content like "Google will share your name, email address, language
+preference, and profile picture with davidrunger.com".
 
 However, that approach relies on the test browser making a real, live external request over the
 Internet to a Google web server in order for the test to pass. This would violate one of my guiding
