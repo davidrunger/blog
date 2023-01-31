@@ -1,0 +1,23 @@
+#!/usr/bin/env ruby
+# frozen_string_literal: true
+
+# This script is inspired by:
+# https://julianfssen.com/2022/04/02/creating-a-post-generator-in-bridgetown/
+
+title = ARGV[0]
+
+date = Time.now.strftime('%F')
+slugified_title = title.downcase.tr(' ', '-')
+filename = "#{date}-#{slugified_title}.md"
+path = "src/_posts/#{filename}"
+
+File.open(path, 'w+') do |file|
+  file.puts(<<~FRONTMATTER)
+    ---
+    title: #{title}
+    subtitle:
+    ---
+  FRONTMATTER
+end
+
+puts %(Created #{path} for post "#{title}". 🙂)
