@@ -11,6 +11,22 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
 
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          bundler-cache: true
+
+      - name: Set up Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18.12.1
+
+      - name: Install Gems
+        run: bundle Install
+
+      - name: Install JavaScript Packages
+        run: yarn install --check-files --ignore-optional
+
       - name: Build
         run: bin/bridgetown deploy && cd output && mkdir blog && mv * blog 2>/dev/null
         env:
