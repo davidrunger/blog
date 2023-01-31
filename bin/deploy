@@ -3,4 +3,5 @@
 bin/bridgetown deploy && \
   cd output && \
   mkdir blog && \
-  for file in *; do [ "$file" != "blog" ] && mv "$file" blog/; done
+  for file in *; do [ "$file" != "blog" ] && mv "$file" blog/; done && \
+  cd ..
