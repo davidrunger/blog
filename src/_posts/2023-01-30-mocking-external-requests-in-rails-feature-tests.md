@@ -26,7 +26,6 @@ want to share it here because, when I was searching how to mock a browser reques
 feature test, my Googling failed to bring up many relevant or helpful code examples.
 
 If that's all that you're looking for, then maybe copy-paste that code and stop reading here. 🙂
-
 **One additional note, though**: for this to work, you'll need to add the `selenium-devtools` gem to
 the `test` group of your Gemfile, if it's not there already.
 
