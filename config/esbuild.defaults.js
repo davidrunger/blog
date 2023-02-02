@@ -177,40 +177,40 @@ const bridgetownPreset = (outputFolder) => ({
 
 // Load the PostCSS config from postcss.config.js or whatever else is a supported location/format
 const postcssrc = require("postcss-load-config")
-const postCssConfig = postcssrc.sync()
+module.exports = postcssrc().then((postCssConfig) => {
+  return (outputFolder, esbuildOptions) => {
+    esbuildOptions.plugins = esbuildOptions.plugins || []
+    // Add the PostCSS & glob plugins to the top of the plugin stack
+    esbuildOptions.plugins.unshift(postCssPlugin(postCssConfig))
+    esbuildOptions.plugins.unshift(importGlobPlugin())
+    // Add the Bridgetown preset to the bottom of the plugin stack
+    esbuildOptions.plugins.push(bridgetownPreset(outputFolder))
 
-module.exports = (outputFolder, esbuildOptions) => {
-  esbuildOptions.plugins = esbuildOptions.plugins || []
-  // Add the PostCSS & glob plugins to the top of the plugin stack
-  esbuildOptions.plugins.unshift(postCssPlugin(postCssConfig))
-  esbuildOptions.plugins.unshift(importGlobPlugin())
-  // Add the Bridgetown preset to the bottom of the plugin stack
-  esbuildOptions.plugins.push(bridgetownPreset(outputFolder))
-
-  // esbuild, take it away!
-  require("esbuild").build({
-    bundle: true,
-    loader: {
-      ".jpg": "file",
-      ".png": "file",
-      ".gif": "file",
-      ".svg": "file",
-      ".woff": "file",
-      ".woff2": "file",
-      ".ttf": "file",
-      ".eot": "file",
-    },
-    resolveExtensions: [".tsx",".ts",".jsx",".js",".css",".json",".js.rb"],
-    nodePaths: ["frontend/javascript", "frontend/styles"],
-    watch: process.argv.includes("--watch"),
-    minify: process.argv.includes("--minify"),
-    sourcemap: process.env.DISABLE_SOURCE_MAPS != "1",
-    target: "es2016",
-    entryPoints: ["frontend/javascript/index.js"],
-    entryNames: "[dir]/[name].[hash]",
-    outdir: path.join(process.cwd(), `${outputFolder}/_bridgetown/static`),
-    publicPath: "/_bridgetown/static",
-    metafile: true,
-    ...esbuildOptions,
-  }).catch(() => process.exit(1))
-}
+    // esbuild, take it away!
+    require("esbuild").build({
+      bundle: true,
+      loader: {
+        ".jpg": "file",
+        ".png": "file",
+        ".gif": "file",
+        ".svg": "file",
+        ".woff": "file",
+        ".woff2": "file",
+        ".ttf": "file",
+        ".eot": "file",
+      },
+      resolveExtensions: [".tsx",".ts",".jsx",".js",".css",".json",".js.rb"],
+      nodePaths: ["frontend/javascript", "frontend/styles"],
+      watch: process.argv.includes("--watch"),
+      minify: process.argv.includes("--minify"),
+      sourcemap: process.env.DISABLE_SOURCE_MAPS != "1",
+      target: "es2016",
+      entryPoints: ["frontend/javascript/index.js"],
+      entryNames: "[dir]/[name].[hash]",
+      outdir: path.join(process.cwd(), `${outputFolder}/_bridgetown/static`),
+      publicPath: "/_bridgetown/static",
+      metafile: true,
+      ...esbuildOptions,
+    }).catch(() => process.exit(1))
+  };
+});
