@@ -7,3 +7,11 @@ updates:
       time: "03:52"
       timezone: America/Chicago
     open-pull-requests-limit: 20
+
+  - package-ecosystem: npm
+    directory: "/"
+    schedule:
+      interval: weekly
+      time: "03:52"
+      timezone: America/Chicago
+    open-pull-requests-limit: 20
