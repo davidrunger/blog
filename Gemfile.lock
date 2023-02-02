@@ -1,9 +1,9 @@
 GEM
   remote: https://rubygems.org/
   specs:
-    activemodel (7.0.4)
-      activesupport (= 7.0.4)
-    activesupport (7.0.4)
+    activemodel (7.0.4.2)
+      activesupport (= 7.0.4.2)
+    activesupport (7.0.4.2)
       concurrent-ruby (~> 1.0, >= 1.0.2)
       i18n (>= 1.6, < 2)
       minitest (>= 5.1)
@@ -46,7 +46,7 @@ GEM
     bridgetown-seo-tag (5.0.0)
       bridgetown (>= 0.20.0, < 2.0)
     colorator (1.1.0)
-    concurrent-ruby (1.1.10)
+    concurrent-ruby (1.2.0)
     erubi (1.12.0)
     faraday (1.10.2)
       faraday-em_http (~> 1.0)
@@ -110,7 +110,7 @@ GEM
       unicode-display_width (~> 1.1, >= 1.1.1)
     thor (1.2.1)
     tilt (2.0.11)
-    tzinfo (2.0.5)
+    tzinfo (2.0.6)
       concurrent-ruby (~> 1.0)
     unicode-display_width (1.8.0)
     webrick (1.7.0)
