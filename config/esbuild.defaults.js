@@ -178,7 +178,7 @@ const bridgetownPreset = (outputFolder) => ({
 // Load the PostCSS config from postcss.config.js or whatever else is a supported location/format
 const postcssrc = require("postcss-load-config")
 module.exports = postcssrc().then((postCssConfig) => {
-  return (outputFolder, esbuildOptions) => {
+  return async (outputFolder, esbuildOptions) => {
     esbuildOptions.plugins = esbuildOptions.plugins || []
     // Add the PostCSS & glob plugins to the top of the plugin stack
     esbuildOptions.plugins.unshift(postCssPlugin(postCssConfig))
@@ -187,7 +187,7 @@ module.exports = postcssrc().then((postCssConfig) => {
     esbuildOptions.plugins.push(bridgetownPreset(outputFolder))
 
     // esbuild, take it away!
-    require("esbuild").build({
+    const context = await require("esbuild").context({
       bundle: true,
       loader: {
         ".jpg": "file",
@@ -201,7 +201,6 @@ module.exports = postcssrc().then((postCssConfig) => {
       },
       resolveExtensions: [".tsx",".ts",".jsx",".js",".css",".json",".js.rb"],
       nodePaths: ["frontend/javascript", "frontend/styles"],
-      watch: process.argv.includes("--watch"),
       minify: process.argv.includes("--minify"),
       sourcemap: process.env.DISABLE_SOURCE_MAPS != "1",
       target: "es2016",
@@ -211,6 +210,13 @@ module.exports = postcssrc().then((postCssConfig) => {
       publicPath: "/_bridgetown/static",
       metafile: true,
       ...esbuildOptions,
-    }).catch(() => process.exit(1))
+    }).catch(() => process.exit(1));
+
+    if (process.argv.includes("--watch")) {
+      await context.watch();
+    } else {
+      await context.rebuild();
+    }
+    context.dispose();
   };
 });
