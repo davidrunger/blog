@@ -8,7 +8,7 @@
   },
   "devDependencies": {
     "cssnano": "^5.1.14",
-    "esbuild": "^0.16.17",
+    "esbuild": "^0.17.5",
     "glob": "^8.1.0",
     "postcss": "^8.4.21",
     "postcss-color-function": "^4.1.0",
