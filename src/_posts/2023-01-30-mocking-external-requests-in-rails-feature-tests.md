@@ -138,11 +138,11 @@ end
 ```
 
 First, within an RSpec `around` block, we disable `OmniAuth` test mode in this test. This is
-necessary because, when the `OmniAuth` test mode is enabled, `OmniAuth` will not actual redirect the
-browser to an external OAuth server. So, in order to test that the browser does follow a redirect to
-an external Google OAuth server, we need to temporarily ensure that the `OmniAuth` test mode is
-disabled. We then restore `OmniAuth.config.test_mode` to its original value (presumably `true`)
-after the test has completed.
+necessary because, when the `OmniAuth` test mode is enabled, `OmniAuth` will not actually redirect
+the browser to an external OAuth server. So, in order to test that the browser does follow a
+redirect to an external Google OAuth server, we need to temporarily ensure that the `OmniAuth` test
+mode is disabled. We then restore `OmniAuth.config.test_mode` to its original value (presumably
+`true`) after the test has completed.
 
 Next is the code that mocks the request to accounts.google.com, providing a specified response code
 (200) and content ("This is Google OAuth."). I wrote some code at the end of that `around` block to
