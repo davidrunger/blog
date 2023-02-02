@@ -216,7 +216,7 @@ module.exports = postcssrc().then((postCssConfig) => {
       await context.watch();
     } else {
       await context.rebuild();
+      context.dispose();
     }
-    context.dispose();
   };
 });
