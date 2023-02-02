@@ -24,4 +24,4 @@ const outputFolder = "output"
 //  ```
 const esbuildOptions = {}
 
-build(outputFolder, esbuildOptions)
+build.then(builder => { builder(outputFolder, esbuildOptions); });
