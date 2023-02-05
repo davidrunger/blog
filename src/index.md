@@ -2,6 +2,7 @@
 layout: page
 title: "David Runger : Blog"
 skip_seo_title: true
+permalink: "/"
 pagination:
   collection: posts
 ---

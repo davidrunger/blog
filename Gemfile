@@ -11,4 +11,5 @@ end
 
 group :bridgetown_plugins do
   gem 'bridgetown-seo-tag'
+  gem 'bridgetown-sitemap'
 end
