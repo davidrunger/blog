@@ -12,7 +12,7 @@
     "glob": "^8.1.0",
     "postcss": "^8.4.21",
     "postcss-color-function": "^4.1.0",
-    "postcss-easy-import": "^3.0.0",
+    "postcss-easy-import": "^4.0.0",
     "postcss-flexbugs-fixes": "^5.0.2",
     "postcss-import": "^15.1.0",
     "postcss-load-config": "^4.0.1",
