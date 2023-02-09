@@ -16,6 +16,8 @@ around do |spec|
       end
     end
   end
+
+  spec.run
   # ...
 end
 ```
