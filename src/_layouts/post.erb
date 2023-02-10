@@ -9,9 +9,16 @@ layout: default
   <h3 class="lowlighted subtitle">
     <%= resource.data.subtitle %>
   </h3>
-  <small class="lowlighted">
-    <%= resource.date.strftime("%B %d, %Y") %> · <%= resource.data.author %>
-  </small>
+  <div>
+    <small class="lowlighted">
+      <%= resource.date.strftime("%B %d, %Y") %> · <%= resource.data.author %>
+    </small>
+  </div>
+  <div>
+    <a href="https://github.com/davidrunger/blog/edit/master/src/<%= resource.relative_path %>">
+      Fork and edit this article on GitHub
+    </a>
+  </div>
 
   <%= yield %>
 </article>
