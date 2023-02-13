@@ -1,6 +1,6 @@
 ---
-title: Mocking external requests in Rails feature tests
-subtitle: essentially, WebMock for the (test) browser
+title: "Mocking external requests in Rails feature tests"
+subtitle: "essentially, WebMock for the (test) browser"
 ---
 
 Without any introduction, allow me to share some code that I want to talk about, which exists within
