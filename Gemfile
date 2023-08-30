@@ -3,7 +3,7 @@
 source 'https://rubygems.org'
 ruby File.read('.ruby-version').rstrip
 
-gem 'bridgetown', '~> 1.3.0'
+gem 'bridgetown', '~> 1.3.1'
 
 group :development do
   gem 'puma'
