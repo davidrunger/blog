@@ -20,6 +20,6 @@
     "postcss-preset-env": "^9.1.4"
   },
   "dependencies": {
-    "postcss-scss": "^4.0.8"
+    "postcss-scss": "^4.0.9"
   }
 }
