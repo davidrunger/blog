@@ -11,7 +11,6 @@
     "esbuild": "^0.19.4",
     "glob": "^10.3.10",
     "postcss": "^8.4.31",
-    "postcss-color-function": "^4.1.0",
     "postcss-easy-import": "^4.0.0",
     "postcss-flexbugs-fixes": "^5.0.2",
     "postcss-import": "^15.1.0",
