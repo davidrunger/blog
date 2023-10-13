@@ -3,7 +3,6 @@ module.exports = {
   plugins: {
     'postcss-easy-import': {},
     'postcss-mixins': {},
-    'postcss-color-function': {},
     'postcss-flexbugs-fixes': {},
     'postcss-preset-env': {
       autoprefixer: {
