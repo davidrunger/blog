@@ -35,11 +35,11 @@ If you're interested in some additional background context, though, read on.
 
 ## Why, though? Some background.
 
-I lifted that code from
-[here](https://github.com/davidrunger/david_runger/blob/25ac799/spec/features/user_google_login_spec.rb#L55-L62),
-where it's being used to test the OAuth flow for logging in to [my
-website](https://davidrunger.com/) using Google OAuth. That test was added in [this
-commit](https://github.com/davidrunger/david_runger/commit/6aab7bf).
+The code above comes from a spec seen
+[here](https://github.com/davidrunger/david_runger/blob/25ac799/spec/features/user_google_login_spec.rb#L55-L62).
+That spec verifies the OAuth flow for logging in to [my
+website](https://davidrunger.com/) using Google OAuth. That test was added in
+[this commit](https://github.com/davidrunger/david_runger/commit/6aab7bf).
 
 ### Content Security Policy (CSP)
 
