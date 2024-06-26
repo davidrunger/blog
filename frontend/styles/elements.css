@@ -1,9 +1,9 @@
 :root {
   --border-radius: 0.25rem;
   --border-width: 1px;
-  --font-size: 1.07rem;
-  --main-line-height: 1.55;
-  --max-body-width: 46rem;
+  --font-size: 1.1rem;
+  --main-line-height: 1.75;
+  --max-body-width: 52rem;
 }
 
 :root {
@@ -127,7 +127,7 @@ html {
 }
 
 h1 {
-  font-size: 1.5em;
+  font-size: 2em;
 }
 
 h1,
@@ -157,8 +157,10 @@ code {
 }
 
 pre code {
-  font-size: 1.0rem;
+  font-size: 0.85em;
   padding: unset;
+  color: #d2dae1;
+  background-color: inherit;
 }
 
 kbd {
@@ -238,10 +240,6 @@ code {
   background-color: var(--code-background-color);
 }
 
-pre code {
-  background-color: inherit;
-}
-
 a,
 a code {
   color: var(--link-color);
@@ -303,7 +301,13 @@ h1, h2, h3, h4, h5, h6 {
   margin-top: 2rem;
 }
 
-article > p:first-of-type {
+article > :not(.highlighter-rouge) {
+  width: 90%;
+  margin: 0 auto;
+  margin: 1rem auto;
+}
+
+article > h2:not(.highlighter-rouge) {
   margin-top: 1.8rem;
 }
 

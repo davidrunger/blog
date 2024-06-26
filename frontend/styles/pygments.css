@@ -4,7 +4,7 @@ span.linenos { color: #6e7681; background-color: #0d1117; padding-left: 5px; pad
 td.linenos .special { color: #c9d1d9; background-color: #6e7681; padding-left: 5px; padding-right: 5px; }
 span.linenos.special { color: #c9d1d9; background-color: #6e7681; padding-left: 5px; padding-right: 5px; }
 
-.highlight { background: #030406; color: #c9d1d9; }
+.highlight { background: #0d1117; color: #c9d1d9; }
 .highlight .bp { color: #c9d1d9; } /* Name.Builtin.Pseudo */
 .highlight .c { color: #8b949e; } /* Comment */
 .highlight .c1 { color: #5e5e5e; } /* Comment.Single */
@@ -58,7 +58,7 @@ span.linenos.special { color: #c9d1d9; background-color: #6e7681; padding-left: 
 .highlight .nn { color: #ff7b72; } /* Name.Namespace */
 .highlight .no { color: #b37fff; font-weight: bold; } /* Name.Constant */
 .highlight .nt { color: #7ee787; } /* Name.Tag */
-.highlight .nv { color: #79c0ff; } /* Name.Variable */
+.highlight .nv { color: #aed9ff; } /* Name.Variable */
 .highlight .nx { color: #c9d1d9; } /* Name.Other */
 .highlight .o { color: #d69cdb; font-weight: bold; } /* Operator */
 .highlight .ow { color: #ff7b72; } /* Operator.Word */
