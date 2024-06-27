@@ -1,6 +1,9 @@
 #!/usr/bin/env ruby
 # frozen_string_literal: true
 
+# EXAMPLE:
+#   bin/create-post 'Using VS Code as a Rails app:update merge tool'
+
 # This script is inspired by:
 # https://julianfssen.com/2022/04/02/creating-a-post-generator-in-bridgetown/
 
