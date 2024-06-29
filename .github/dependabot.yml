@@ -1,3 +1,4 @@
+---
 version: 2
 updates:
   - package-ecosystem: bundler
@@ -7,7 +8,8 @@ updates:
       time: "04:04"
       timezone: America/Chicago
     open-pull-requests-limit: 20
-
+    allow:
+      - dependency-type: all
   - package-ecosystem: npm
     directory: "/"
     schedule:
