@@ -16,7 +16,7 @@
     "postcss-import": "^16.1.0",
     "postcss-load-config": "^6.0.1",
     "postcss-mixins": "^10.0.1",
-    "postcss-preset-env": "^9.5.14"
+    "postcss-preset-env": "^9.5.15"
   },
   "dependencies": {
     "postcss-scss": "^4.0.9"
