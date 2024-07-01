@@ -10,7 +10,7 @@
     "cssnano": "^7.0.3",
     "esbuild": "^0.21.5",
     "glob": "^10.4.2",
-    "postcss": "^8.4.38",
+    "postcss": "^8.4.39",
     "postcss-easy-import": "^4.0.0",
     "postcss-flexbugs-fixes": "^5.0.2",
     "postcss-import": "^16.1.0",
