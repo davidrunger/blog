@@ -94,7 +94,7 @@ Remedying that situation is as simple as executing the provided command at the t
 ❯ git config core.hooksPath bin/githooks
 ```
 
-That tells Git to look in the repository's [`bin/githooks/`][bin-githooks] directory for relevant scripts before and after performing key actions, such as a script called `pre-push` before pushing, or a `pre-push` script before committing.
+That tells Git to look in the repository's [`bin/githooks/`][bin-githooks] directory for relevant scripts before and after performing key actions. For example, Git will look for (and run) a script called `pre-push` before pushing, or a `pre-push` script before committing.
 
 [bin-githooks]: https://github.com/davidrunger/david_runger/tree/main/bin/githooks
 
