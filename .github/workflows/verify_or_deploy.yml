@@ -29,8 +29,8 @@ jobs:
       - name: Install Gems
         run: bundle install
 
-      - name: Intentional failure
-        run: exit 1
+      - name: Run RuboCop
+        run: bin/rubocop --format clang
 
       - name: Install JavaScript Packages
         run: yarn install --check-files --ignore-optional
