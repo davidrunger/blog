@@ -8,6 +8,9 @@ gem 'bridgetown', '~> 1.3.4'
 
 group :development do
   gem 'puma'
+  gem 'rubocop-performance', require: false
+  gem 'rubocop-rake', require: false
+  gem 'runger_style', require: false
 end
 
 group :bridgetown_plugins do
