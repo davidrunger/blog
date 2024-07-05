@@ -36,6 +36,7 @@ namespace :frontend do
   task :dev do
     sh('yarn run esbuild-dev')
   rescue Interrupt
+    puts("\nReceived interrupt. Exiting.")
   end
 end
 
