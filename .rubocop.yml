@@ -1,5 +1,5 @@
 inherit_gem:
   runger_style:
-    - rulesets/default.yml # gem 'rubocop'
-    - rulesets/performance.yml # gem 'rubocop-performance'
-    - rulesets/rake.yml # gem 'rubocop-rake'
+    - rulesets/default.yml
+    - rulesets/performance.yml
+    - rulesets/rake.yml
