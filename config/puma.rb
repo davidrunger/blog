@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # Puma is a fast, concurrent web server for Ruby & Rack
 #
 # Learn more at: https://puma.io
