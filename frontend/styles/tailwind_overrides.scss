@@ -1,0 +1,47 @@
+// NOTE: We nest the selectors within `body` to give them additional specificity.
+body {
+  h1 {
+    @apply my-4 text-3xl font-bold;
+  }
+
+  h2 {
+    @apply my-3 text-2xl font-bold;
+  }
+
+  h3 {
+    @apply my-2 text-xl font-bold;
+  }
+
+  h4 {
+    @apply my-1 text-lg font-bold;
+  }
+
+  h5 {
+    @apply my-1 text-base font-bold;
+  }
+
+  h6 {
+    @apply my-1 text-sm font-bold;
+  }
+
+  img,
+  svg {
+    display: inline;
+  }
+
+  p {
+    margin-top: 1em;
+    margin-bottom: 1em;
+  }
+
+  ol {
+    @apply pl-8;
+
+    list-style-type: decimal;
+    list-style-position: outside;
+  }
+
+  hr {
+    margin: auto;
+  }
+}

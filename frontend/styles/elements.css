@@ -94,11 +94,6 @@ body {
   font-size: var(--font-size);
 }
 
-img,
-svg {
-  display: inline;
-}
-
 hr {
   height: 0; /* 1 */
   color: inherit; /* 2 */
