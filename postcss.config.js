@@ -1,6 +1,7 @@
 module.exports = {
   parser: 'postcss-scss',
   plugins: {
+    'tailwindcss': {},
     'postcss-easy-import': {},
     'postcss-mixins': {},
     'postcss-flexbugs-fixes': {},
@@ -16,6 +17,6 @@ module.exports = {
     },
     'cssnano' : {
       preset: 'default'
-    }
+    },
   }
 }

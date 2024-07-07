@@ -4,7 +4,7 @@
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.metadata.myvariable }}.
 
-title: David Runger
+title: 'David Runger : Blog'
 tagline: Rails and JavaScript Engineer
 email: davidjrunger@gmail.com
 description: I'm a full stack web developer focusing on Ruby on Rails, and this is my tech blog.
