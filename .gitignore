@@ -33,3 +33,6 @@ yarn-debug.log*
 .pnp.js
 # Yarn Integrity file
 .yarn-integrity
+
+# Tailwind integration
+frontend/styles/jit-refresh.css

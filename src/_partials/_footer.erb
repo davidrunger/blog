@@ -1,6 +1,16 @@
 <footer>
   <small>
-    © <%= site.time.year %> by <a href="https://davidrunger.com/">David Runger</a>.
-    View source at <a href="https://github.com/davidrunger/blog/">GitHub</a>.
+    <div>
+      <a href="/blog/feed.xml">
+        <%= svg "/images/icons/feed.svg", height: '1.2em' %>
+        Atom Feed
+      </a>
+    </div>
+    <div>
+      © <%= site.time.year %> by <a href="https://davidrunger.com/">David Runger</a>
+    </div>
+    <div>
+      View source at <a href="https://github.com/davidrunger/blog/">GitHub</a>
+    </div>
   </small>
 </footer>

@@ -1,3 +1,6 @@
+@import "jit-refresh.css"; /* triggers frontend rebuilds */
+@import "tailwind.css"; /* https://github.com/tailwindlabs/tailwindcss/issues/ 45 */
+
 @import "elements.css";
 @import "pygments.css";
 

@@ -14,6 +14,8 @@ group :development do
 end
 
 group :bridgetown_plugins do
+  gem 'bridgetown-feed'
   gem 'bridgetown-seo-tag'
   gem 'bridgetown-sitemap'
+  gem 'bridgetown-svg-inliner'
 end

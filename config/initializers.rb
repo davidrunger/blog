@@ -8,6 +8,8 @@ Bridgetown.configure do |config|
     'values' => { 'sitemap' => false },
   }
 
+  init :'bridgetown-feed'
   init :'bridgetown-seo-tag'
   init :'bridgetown-sitemap'
+  init :'bridgetown-svg-inliner'
 end
