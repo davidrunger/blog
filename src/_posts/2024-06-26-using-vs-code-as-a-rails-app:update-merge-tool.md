@@ -107,7 +107,9 @@ Then, run `rails app:update` again, this time providing our script as the `THOR_
 THOR_MERGE=/home/david/code/david_runger/bin/app_update_thor_merge_tool bin/rails app:update
 ```
 
-Now, if we press `m` (for `merge, run merge tool`) when prompted with a config file that needs attention, VS Code will open its three-way merge view.
+Now, if we press `m` (for `merge, run merge tool`) when prompted with a config file that needs attention, VS Code will open its three-way merge view:
+
+![app:update VS Code three-way merge](https://david-runger-public-uploads.s3.amazonaws.com/app-upate-vs-code-three-way-merge.png)
 
 The left pane shows the content of the config file as Rails would generate it for a brand new application.
 
