@@ -17,7 +17,7 @@ path = "src/_posts/#{filename}"
 File.open(path, 'w+') do |file|
   file.puts(<<~FRONTMATTER)
     ---
-    title: "#{title}"
+    title: #{title}
     subtitle:
     ---
   FRONTMATTER

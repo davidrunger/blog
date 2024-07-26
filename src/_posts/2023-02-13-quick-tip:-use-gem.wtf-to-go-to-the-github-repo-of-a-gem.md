@@ -1,6 +1,5 @@
 ---
 title: "Quick Tip: Use gem.wtf to go to the GitHub repo of a gem"
-subtitle:
 ---
 
 [gem.wtf](https://gem.wtf/) is a handy little website/tool that I use probably at least once a week.

@@ -1,6 +1,6 @@
 ---
-title: "Flaky specs due to ActionCable leakage"
-subtitle: "A cautionary tale"
+title: Flaky specs due to ActionCable leakage
+subtitle: A cautionary tale
 ---
 
 ## A spec setup at risk of flaking
