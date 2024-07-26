@@ -1,6 +1,5 @@
 ---
-title: "Enforce Git hooks in a Rails initializer"
-subtitle:
+title: Enforce Git hooks in a Rails initializer
 ---
 
 ## Git hooks
