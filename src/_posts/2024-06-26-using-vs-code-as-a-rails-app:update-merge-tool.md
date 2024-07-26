@@ -1,6 +1,6 @@
 ---
-title: "Using VS Code as a Rails app:update merge tool"
-subtitle:
+title: Using VS Code as a Rails app:update merge tool
+image: https://david-runger-public-uploads.s3.amazonaws.com/app-upate-vs-code-three-way-merge.png
 ---
 
 ## Background: the `rails app:update` command
