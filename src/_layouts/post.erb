@@ -11,13 +11,9 @@ layout: default
   </h3>
   <div>
     <small class="lowlighted">
-      <%= resource.date.strftime("%B %d, %Y") %> · <%= resource.data.author %>
-    </small>
-  </div>
-  <div>
-    <small>
+      <%= resource.date.strftime("%B %d, %Y") %> · <%= resource.data.author %> |
       <a href="https://github.com/davidrunger/blog/edit/main/src/<%= resource.relative_path %>">
-        Fork and edit this article on GitHub
+        Edit this article on GitHub
       </a>
     </small>
   </div>
