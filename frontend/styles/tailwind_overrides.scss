@@ -41,6 +41,11 @@ body {
     list-style-position: outside;
   }
 
+  ul {
+    list-style: initial;
+    padding-inline-start: 32px;
+  }
+
   hr {
     margin: auto;
   }
