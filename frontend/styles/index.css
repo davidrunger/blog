@@ -21,7 +21,7 @@
 }
 
 .subtitle {
-  margin: .25rem 0 .15rem 0
+  margin-top: 0 !important;
 }
 
 .lowlighted {
