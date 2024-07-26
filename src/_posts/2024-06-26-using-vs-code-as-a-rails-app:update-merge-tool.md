@@ -111,11 +111,11 @@ Now, if we press `m` (for `merge, run merge tool`) when prompted with a config f
 
 ![app:update VS Code three-way merge](https://david-runger-public-uploads.s3.amazonaws.com/app-upate-vs-code-three-way-merge.png)
 
-The left pane shows the content of the config file as Rails would generate it for a brand new application.
+The **left pane** shows the content of the config file as Rails would generate it for a brand new application.
 
-The right pane shows the content of the config file as it currently exists in our repository.
+The **right pane** shows the content of the config file as it currently exists in our repository.
 
-The center pane is what will become the final result, which it is your job to craft, using the contents of the left and right panes of the merge view as a starting point and guide.
+The **center pane** is what will become the final result, which it is your job to craft, using the contents of the left and right panes of the merge view as a starting point and guide.
 
 Read through any relevant Rails documentation about the changes and do whatever else you need to do to figure out how to resolve the discrepancies between your existing configuration and the configuration that Rails would generate for a new app. Then, once you have the middle pane into the desired final state, save the file, and close the tab in VS Code. In your terminal, the `rails app:update` command will then move on to the next file, which you can again hit `m` to open in the VS Code three-way merge view. Keep doing this, until you work through all of the configuration files that need attention.
 
