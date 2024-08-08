@@ -238,7 +238,7 @@ So, when I invoke `unique-union` from my command line, that refers to the `~/bin
 
 Overall, after ironing out a kink or two, this system seems to work pretty smoothly, but there are some downsides.
 
-One downside is that, after I change any Crystal source file, then the next time that I invoke that command, there is a significant delay, as `run-crystal-program` compiles an up-to-date version of the executable binary. However, thereafter, `run-crystal-program` simply invokes the already-compiled binary, and so the compiled program executes quite quickly.
+One downside is that, after I change any Crystal source file, then the next time that I invoke that command, there is a significant delay (a few seconds), as `run-crystal-program` compiles an up-to-date version of the executable binary. However, thereafter, `run-crystal-program` simply invokes the already-compiled binary, and so the compiled program executes quickly.
 
 Another downside is that, even when an up-to-date binary has already been compiled, this system does waste a little bit of time executing the `run-crystal-program` bash script, which probably adds somewhere on the order of 8 milliseconds or so to the overall execution time. It would be faster if, instead of going through the `run-crystal-program` bash script, calling `unique-union` would directly invoke the compiled Crystal binary. However, then I'd lose the benefit of automatic compilation and the assurance that I'm always running a binary that has been compiled using the latest version of the Crystal source code.
 
