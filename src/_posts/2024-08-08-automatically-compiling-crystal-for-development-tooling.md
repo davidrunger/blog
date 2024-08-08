@@ -1,7 +1,7 @@
 ---
 title: Automatically compiling Crystal for development tooling
 subtitle: The ease and beauty of Ruby, with the speed of C.
-image: https://david-runger-public-uploads.s3.amazonaws.com/crystal.png
+image: https://david-runger-public-uploads.s3.amazonaws.com/crystal-logo-stacked.png
 ---
 
 ## The importance of good tooling
