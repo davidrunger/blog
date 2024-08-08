@@ -86,7 +86,9 @@ However, that all changed, when ChatGPT and I collaborated on a way to automatic
 
 The compiled language that I decided to try out first as a language in which to write development tooling is **[Crystal](https://crystal-lang.org/)**. Crystal is a compiled language with a syntax that is very similar to Ruby (with the main difference being that Crystal sometimes requires type annotations). Crystal programs are extremely fast, often comparable to (or even faster than) a raw C implementation. Crystal programs also use much less memory than an equivalent Ruby program would.
 
-Crystal also has extremely helpful and well formatted error messages, and the documentation is useful and easy to read.
+Crystal also has extremely helpful and well formatted error messages, and [the documentation][crystal-docs] is useful and easy to read.
+
+[crystal-docs]: https://crystal-lang.org/api/master/
 
 Overall, I find it a pleasure to work with, and I feel lucky that there exists a language with the ease and beauty of Ruby and yet also with the speed of C and light memory usage.
 
