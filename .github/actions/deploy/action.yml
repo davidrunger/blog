@@ -1,0 +1,20 @@
+name: "Deploy"
+description: "Deploy to Rails server"
+runs:
+  using: "composite"
+  steps:
+    - name: Set up key for SSHing to server
+      run: |
+        mkdir -p ~/.ssh/
+        echo "${{secrets.SSH_KNOWN_HOSTS}}" > ~/.ssh/known_hosts
+        echo "${{secrets.SSH_PRIVATE_KEY}}" > ~/.ssh/id_ed25519
+        echo "${{secrets.SSH_PUBLIC_KEY}}" > ~/.ssh/id_ed25519.pub
+        sudo chmod 600 ~/.ssh/id_ed25519
+        eval "$(ssh-agent -s)"
+        ssh-add ~/.ssh/id_ed25519
+
+    - name: Rename 'output/' to 'blog/'
+      run: mv output blog
+
+    - name: Copy 'blog/' directory to server
+      run: scp -r blog "${{secrets.SERVER_USER_AND_IP}}:/root/david_runger"

@@ -38,13 +38,8 @@ jobs:
       - name: Build
         run: bin/deploy
         env:
-          DISABLE_LIVE_RELOAD: 1
-          DISABLE_SOURCE_MAPS: 1
+          BRIDGETOWN_ENV: production
 
       - name: Deploy
-        if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' }}
-        uses: cloudflare/wrangler-action@v3
-        with:
-          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          command: pages deploy output --project-name=david-runger-blog
+        # if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' }}
+        uses: ./.github/actions/deploy
