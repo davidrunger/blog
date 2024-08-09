@@ -4,6 +4,7 @@ runs:
   using: "composite"
   steps:
     - name: Set up key for SSHing to server
+      shell: bash
       run: |
         mkdir -p ~/.ssh/
         echo "${{secrets.SSH_KNOWN_HOSTS}}" > ~/.ssh/known_hosts
@@ -14,7 +15,9 @@ runs:
         ssh-add ~/.ssh/id_ed25519
 
     - name: Rename 'output/' to 'blog/'
+      shell: bash
       run: mv output blog
 
     - name: Copy 'blog/' directory to server
+      shell: bash
       run: scp -r blog "${{secrets.SERVER_USER_AND_IP}}:/root/david_runger"
