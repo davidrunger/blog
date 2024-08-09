@@ -170,7 +170,7 @@ const sassPlugin = (options) => ({
             return new URL(url.substring(1), modulesFolder)
           }
         }],
-        sourceMap: true,
+        sourcemap: process.env.BRIDGETOWN_ENV !== 'production',
         ...options
       }
       const result = sass.compile(args.path, localOptions)
@@ -337,7 +337,7 @@ module.exports = async (esbuildOptions, ...args) => {
     },
     resolveExtensions: [".tsx", ".ts", ".jsx", ".js", ".css", ".scss", ".sass", ".json", ".js.rb"],
     minify: process.argv.includes("--minify"),
-    sourcemap: true,
+    sourcemap: process.env.BRIDGETOWN_ENV !== 'production',
     target: "es2020",
     entryPoints: [...entryPoints, ...islands],
     entryNames: "[dir]/[name].[hash]",

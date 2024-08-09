@@ -1,0 +1,40 @@
+name: "Deploy"
+description: "Deploy to Rails server"
+inputs:
+  SERVER_USER_AND_IP:
+    description: 'Server user and IP (e.g. "david@123.123.123.123")'
+    required: true
+  SSH_KNOWN_HOSTS:
+    description: 'Known hosts file content with the server information'
+    required: true
+  SSH_PRIVATE_KEY:
+    description: 'ED25519 SSH private key for deployment'
+    required: true
+  SSH_PUBLIC_KEY:
+    description: 'Public key corresponding to SSH_PRIVATE_KEY'
+    required: true
+runs:
+  using: "composite"
+  steps:
+    - name: Set up key for SSHing to server
+      shell: bash
+      run: |
+        mkdir -p ~/.ssh/
+        echo "${{ inputs.SSH_KNOWN_HOSTS }}" > ~/.ssh/known_hosts
+        echo "${{ inputs.SSH_PRIVATE_KEY }}" > ~/.ssh/id_ed25519
+        echo "${{ inputs.SSH_PUBLIC_KEY }}" > ~/.ssh/id_ed25519.pub
+        sudo chmod 600 ~/.ssh/id_ed25519
+        eval "$(ssh-agent -s)"
+        ssh-add ~/.ssh/id_ed25519
+
+    - name: Rename 'output/' to 'blog/'
+      shell: bash
+      run: mv output blog
+
+    - name: Delete existing 'blog/' directory on server
+      shell: bash
+      run: ssh "${{ inputs.SERVER_USER_AND_IP }}" "rm -rf /root/david_runger/blog"
+
+    - name: Copy 'blog/' directory to server
+      shell: bash
+      run: scp -r blog "${{ inputs.SERVER_USER_AND_IP }}:/root/david_runger"

@@ -36,15 +36,15 @@ jobs:
         run: yarn install --check-files --ignore-optional
 
       - name: Build
-        run: bin/deploy
+        run: bin/bridgetown deploy
         env:
-          DISABLE_LIVE_RELOAD: 1
-          DISABLE_SOURCE_MAPS: 1
+          BRIDGETOWN_ENV: production
 
       - name: Deploy
         if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' }}
-        uses: cloudflare/wrangler-action@v3
+        uses: ./.github/actions/deploy
         with:
-          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          command: pages deploy output --project-name=david-runger-blog
+          SERVER_USER_AND_IP: ${{ secrets.SERVER_USER_AND_IP }}
+          SSH_KNOWN_HOSTS: ${{ secrets.SSH_KNOWN_HOSTS }}
+          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+          SSH_PUBLIC_KEY: ${{ secrets.SSH_PUBLIC_KEY }}
