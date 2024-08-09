@@ -36,7 +36,7 @@ jobs:
         run: yarn install --check-files --ignore-optional
 
       - name: Build
-        run: bin/deploy
+        run: bin/bridgetown deploy
         env:
           BRIDGETOWN_ENV: production
 

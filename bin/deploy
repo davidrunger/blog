@@ -1,7 +1,0 @@
-#!/usr/bin/env bash
-
-bin/bridgetown deploy && \
-  cd output && \
-  mkdir blog && \
-  for file in *; do [ "$file" != "blog" ] && mv "$file" blog/; done && \
-  cd ..
