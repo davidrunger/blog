@@ -43,3 +43,8 @@ jobs:
       - name: Deploy
         # if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' }}
         uses: ./.github/actions/deploy
+        with:
+          SERVER_USER_AND_IP: ${{ secrets.SERVER_USER_AND_IP }}
+          SSH_KNOWN_HOSTS: ${{ secrets.SSH_KNOWN_HOSTS }}
+          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+          SSH_PUBLIC_KEY: ${{ secrets.SSH_PUBLIC_KEY }}
