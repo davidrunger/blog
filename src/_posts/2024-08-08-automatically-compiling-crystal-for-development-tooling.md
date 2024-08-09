@@ -14,7 +14,7 @@ Lots of great tooling is available off the shelf, and it's usually best to lever
 
 However, there are some tools one will want that are unique to one's idiosyncratic workflow, or, for whatever other reason, off-the-shelf tooling might not be available to meet a given need. In these cases, happily, as software developers, we can write our own tooling! I often do.
 
-A lot of the tools that I create for myself comes in the forms of programs that I execute from a terminal, or which are invoked indirectly by some _other_ command that I execute in a terminal.
+A lot of the tools that I create for myself are programs that I execute from a terminal, or which are invoked indirectly by some _other_ command that I execute in a terminal.
 
 For example, I often want to pull updates from a GitHub repository down to my local machine, and then rebase my branch onto that updated version of the `main` branch. I do this by executing in my terminal a command that I've written called `gform` (which stands for "git fetch origin and rebase with main").
 
