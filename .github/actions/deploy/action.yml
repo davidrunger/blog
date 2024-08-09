@@ -1,5 +1,18 @@
 name: "Deploy"
 description: "Deploy to Rails server"
+inputs:
+  SERVER_USER_AND_IP:
+    description: 'Server user and IP (e.g. "david@123.123.123.123")'
+    required: true
+  SSH_KNOWN_HOSTS:
+    description: 'Known hosts file content with the server information'
+    required: true
+  SSH_PRIVATE_KEY:
+    description: 'ED25519 SSH private key for deployment'
+    required: true
+  SSH_PUBLIC_KEY:
+    description: 'Public key corresponding to SSH_PRIVATE_KEY'
+    required: true
 runs:
   using: "composite"
   steps:
