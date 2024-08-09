@@ -41,7 +41,7 @@ jobs:
           BRIDGETOWN_ENV: production
 
       - name: Deploy
-        # if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' }}
+        if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' }}
         uses: ./.github/actions/deploy
         with:
           SERVER_USER_AND_IP: ${{ secrets.SERVER_USER_AND_IP }}
