@@ -3,12 +3,14 @@ layout: default
 ---
 
 <article>
-  <h1 style="margin-bottom: .1rem">
-    <%= resource.data.title %>
-  </h1>
-  <h3 class="lowlighted subtitle">
-    <%= resource.data.subtitle %>
-  </h3>
+  <hgroup>
+    <h1 style="margin-bottom: .1rem">
+      <%= resource.data.title %>
+    </h1>
+    <p class="lowlighted subtitle">
+      <%= resource.data.subtitle %>
+    </p>
+  </hgroup>
   <div>
     <small class="lowlighted">
       <%= resource.date.strftime("%B %d, %Y") %> · <%= resource.data.author %> |
