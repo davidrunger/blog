@@ -3,9 +3,9 @@
 <style>html { visibility: hidden; opacity:0; }</style>
 <% if resource.data.skip_seo_title %>
   <title>David Runger : Blog</title>
-  <%= seo(title: false) %>
+  <%= seo(title: false).gsub('blog/blog', 'blog') %>
 <% else %>
-  <%= seo %>
+  <%= seo.gsub('blog/blog', 'blog').html_safe %>
 <% end %>
 <%= feed_meta %>
 <link rel="icon" type="image/png" sizes="32x32" href="<%= site.base_path %>/images/favicon/favicon-32x32.png">
