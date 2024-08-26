@@ -8,6 +8,9 @@ on:
 
 jobs:
   verify_or_deploy:
+    concurrency:
+      cancel-in-progress: ${{ github.ref != 'refs/heads/main' }}
+      group: verify_or_deploy-${{ github.ref_name }}
     runs-on: ubuntu-latest
     name: Verify deployability (and maybe deploy)
     steps:
