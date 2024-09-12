@@ -59,7 +59,7 @@ Since I already use VS Code as my primary code editor (including using its merge
 
 The `code --help` output includes this:
 
-> ❯ code --help
+> ❯ `code --help`
 >
 > [...]
 >
