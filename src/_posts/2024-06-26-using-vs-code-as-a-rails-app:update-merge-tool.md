@@ -67,7 +67,10 @@ The `code --help` output includes this:
 
 ### Background: `rails app:update` and `THOR_MERGE`
 
-For each configuration file that needs to be updated, the `rails app:update` command will provide two file paths to the `THOR_MERGE` tool. The first argument will be the path of a temporary file that will contain the version of the configuration file as Rails would generate that file for a brand new application. The second argument will be the path of that configuration file in our existing app.
+For each configuration file that needs to be updated, the `rails app:update` command will provide two file paths to the `THOR_MERGE` tool:
+
+1. The first argument will be the path of a temporary file that will contain the version of the configuration file as Rails would generate that file for a brand new application.
+2. The second argument will be the path of that configuration file in our existing app.
 
 ### Putting it together
 
