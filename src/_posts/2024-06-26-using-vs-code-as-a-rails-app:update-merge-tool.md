@@ -7,7 +7,7 @@ image: https://david-runger-public-uploads.s3.amazonaws.com/app-upate-vs-code-th
 
 As part of bumping the major or minor version of a Rails app, one should execute the `rails app:update` command ([docs](https://guides.rubyonrails.org/upgrading_ruby_on_rails.html#the-update-task)). This command is intended to help maintainers of existing Rails applications to update their application configuration files as appropriate to accommodate changes that have been made to Rails's configuration files and changes of the configuration defaults in the newer version of Rails.
 
-This command will compare, one by one in an interactive console session, the content of the configuration files that _would_ be generated for a brand new Rails app (such as `config/application.rb`, `config/environments/production.rb`, etc.) against the current actual content of those same files in the existing application that is being upgraded.
+This command will compare, one by one in an interactive console session, the content of the configuration files (such as `config/application.rb`, `config/environments/production.rb`, etc.) that _would_ be generated for a brand new Rails app against the current actual content of those same files in the existing application that is being upgraded.
 
 The developer performing this upgrade will want, in many cases, to keep their existing application configuration, including some departures from the Rails default configuration that was provided by the initial `rails new` command that generated the app. In other words, most application configurations will contain some adjustments versus the out-of-the-box Rails defaults, and many of those reasons will still be relevant and appropriate, even after upgrading to the newer version of Rails.
 
