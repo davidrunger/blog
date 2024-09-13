@@ -115,7 +115,7 @@ GEM
       ffi (~> 1.0)
     regexp_parser (2.9.2)
     rexml (3.3.7)
-    roda (3.83.0)
+    roda (3.84.0)
       rack
     rouge (4.3.0)
     rubocop (1.66.1)
