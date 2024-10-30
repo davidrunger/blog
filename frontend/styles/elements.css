@@ -303,12 +303,12 @@ h1, h2, h3, h4, h5, h6 {
 
 article > :not(.highlighter-rouge, p:has(img)) {
   width: 90%;
-  margin: 0 auto;
-  margin: 1rem auto;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 article > h2 {
-  margin-top: 1.8rem;
+  margin-top: 2.2rem;
 }
 
 :not(a) > strong, h1, h2, h3, h4, h5, h6 {
