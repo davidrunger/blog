@@ -17,7 +17,7 @@
     "postcss-load-config": "^6.0.1",
     "postcss-mixins": "^11.0.3",
     "postcss-preset-env": "^10.1.0",
-    "tailwindcss": "^3.4.14"
+    "tailwindcss": "^3.4.15"
   },
   "dependencies": {
     "postcss-scss": "^4.0.9"
