@@ -117,7 +117,7 @@ GEM
     rb-inotify (0.11.1)
       ffi (~> 1.0)
     regexp_parser (2.9.3)
-    rexml (3.3.9)
+    rexml (3.4.0)
     roda (3.86.0)
       rack
     rouge (4.5.1)
