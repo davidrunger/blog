@@ -6,9 +6,9 @@ title: Enforce Git hooks in a Rails initializer
 
 Git has a cool feature called [Git hooks][git-hooks]:
 
->  Git hooks are scripts that run automatically every time a particular event occurs in a Git repository. They let you customize Git’s internal behavior and trigger customizable actions at key points in the development life cycle.
+> Git Hooks are scripts that Git can execute automatically when certain events occur, such as before or after a commit, push, or merge.
 
-[git-hooks]: https://www.atlassian.com/git/tutorials/git-hooks
+[git-hooks]: https://githooks.com/
 
 For example, I have a [pre-push Git hook][pre-push-hook] script that I want to be run before I push any code up to GitHub for [my website][davidrunger.com]'s repository. This script performs various checks, such as using [Gitleaks][gitleaks] to scan the diff that's about to be pushed up to GitHub for any secrets (like an API access token) and to abort the push if any such secrets are found. The `pre-push` hook also runs various linters, to ensure consistent and high quality code.
 
