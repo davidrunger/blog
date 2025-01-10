@@ -10,7 +10,7 @@ Git has a cool feature called [Git hooks][git-hooks]:
 
 [git-hooks]: https://githooks.com/
 
-For example, I have a [pre-push Git hook][pre-push-hook] script that I want to be run before I push any code up to GitHub for [my website][davidrunger.com]'s repository. This script performs various checks, such as using [Gitleaks][gitleaks] to scan the diff that's about to be pushed up to GitHub for any secrets (like an API access token) and to abort the push if any such secrets are found. The `pre-push` hook also runs various linters.
+For example, I have a [pre-push Git hook][pre-push-hook] script that I want to be run before I push any code up to GitHub for [my website][davidrunger.com]'s repository. This script performs various checks, such as using [Gitleaks][gitleaks] to scan the diff for any secrets (like an API access token) and to abort the push if any such secrets are found. The `pre-push` hook also runs various linters.
 
 As long as everyone who works on the repository configures their local Git setup to use the repository's Git hooks, then Git will run that `pre-push` check and verify that it passes before Git will actually push any code to GitHub.
 
