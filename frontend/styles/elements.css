@@ -317,6 +317,6 @@ article > h2 {
 
 /* https://stackoverflow.com/a/53364612/4009384  */
 html {
-  visibility: visible;
+  visibilityz: visible;
   opacity: 1;
 }
