@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+
+set -euo pipefail # exit on any error, don't allow undefined variables, pipes don't swallow errors
+
+# Check that a 'visibility:' CSS rule is present in the compiled CSS.
+grep -q 'visibility:' output/_bridgetown/static/index.*.css

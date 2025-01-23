@@ -43,6 +43,9 @@ jobs:
         env:
           BRIDGETOWN_ENV: production
 
+      - name: Check compiled CSS
+        run: bin/check-compiled-css
+
       - name: Deploy
         if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' }}
         uses: ./.github/actions/deploy
