@@ -3,7 +3,8 @@
 set -euo pipefail # exit on any error, don't allow undefined variables, pipes don't swallow errors
 
 # Check that a 'visibility:' CSS rule is present in the compiled CSS.
-if ! grep -q 'visibility:' output/_bridgetown/static/index.*.css ; then
-  echo "ERROR: No 'visibility:' CSS rule found in compiled CSS."
+css_target='visibility:'
+if ! grep -q "$css_target" output/_bridgetown/static/index.*.css ; then
+  echo "ERROR: No '$css_target' CSS rule found in compiled CSS."
   exit 1
 fi
