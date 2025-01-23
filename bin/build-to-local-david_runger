@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+
+# This script is used to build the site and deploy it to the `david_runger`
+# directory in my `code` directory. (It won't work on your machine, unless you
+# set up the same directory structure.)
+
+set -euo pipefail # exit on any error, don't allow undefined variables, pipes don't swallow errors
+
+BRIDGETOWN_ENV=production bin/bridgetown deploy
+rm -rf ~/code/david_runger/blog
+mv output blog
+cp -r blog ~/code/david_runger
+rm -rf blog
