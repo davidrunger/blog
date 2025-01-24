@@ -1,8 +1,8 @@
-@import "jit-refresh.css"; /* triggers frontend rebuilds */
-@import "tailwind.css"; /* https://github.com/tailwindlabs/tailwindcss/issues/ 45 */
-@import "tailwind_overrides.scss";
-@import "elements.css";
-@import "pygments.css";
+@import './jit-refresh.css'; /* triggers frontend rebuilds */
+@import './tailwind.css'; /* https://github.com/tailwindlabs/tailwindcss/issues/ 45 */
+@import 'tailwind_overrides.scss';
+@import './elements.css';
+@import './pygments.css';
 
 .posts-li-title {
   font-size: 1.35rem;
