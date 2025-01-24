@@ -36,7 +36,7 @@ jobs:
         run: bin/rubocop --format clang
 
       - name: Install JavaScript Packages
-        run: yarn install --check-files --ignore-optional
+        run: yarn install --check-files
 
       - name: Build
         run: bin/bridgetown deploy
