@@ -1,7 +1,7 @@
 module.exports = {
   parser: 'postcss-scss',
   plugins: {
-    'tailwindcss': {},
+    '@tailwindcss/postcss': {},
     'postcss-easy-import': {},
     'postcss-mixins': {},
     'postcss-flexbugs-fixes': {},
