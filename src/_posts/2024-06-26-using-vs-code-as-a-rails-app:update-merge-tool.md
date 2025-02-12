@@ -104,10 +104,10 @@ rm "$RAILS_DEFAULT_CONFIG"
 
 Then, run `rails app:update` again, this time providing the above script as the `THOR_MERGE` tool.
 
-**Note:** It's important to provide the THOR_MERGE tool as an absolute path. Since your absolute path will be different from mine, you'll need to tweak the command below to reflect the absolute path to the location of your `app_update_thor_merge_tool` file.
+**Note:** It's important to provide the THOR_MERGE tool as an absolute path.
 
 ```
-THOR_MERGE=/home/david/code/david_runger/bin/app_update_thor_merge_tool bin/rails app:update
+THOR_MERGE=$(pwd)/bin/app_update_thor_merge_tool bin/rails app:update
 ```
 
 Now, if we press `m` (for `merge, run merge tool`) when prompted with a config file that needs attention, VS Code will open its three-way merge view:
