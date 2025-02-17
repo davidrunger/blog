@@ -3,6 +3,7 @@
 @import 'tailwind_overrides.scss';
 @import 'elements.css';
 @import 'pygments.css';
+@import 'copy-buttons.css';
 
 .posts-li-title {
   font-size: 1.35rem;
