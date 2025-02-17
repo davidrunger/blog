@@ -1,0 +1,29 @@
+/* Style for code blocks with copy buttons */
+.code-block {
+  position: relative;
+}
+
+.copy-button {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  padding: 5px 10px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 12px;
+  font-family: sans-serif;
+  transition: all 0.2s ease;
+}
+
+.copy-button:hover {
+  background: rgba(255, 255, 255, 0.2);
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+.copy-button.copied {
+  background: rgba(76, 175, 80, 0.8);
+  color: white;
+  border-color: rgba(76, 175, 80, 0.6);
+}
