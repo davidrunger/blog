@@ -1,3 +1,5 @@
+import { trackEvent } from "./lib/events";
+
 // addCopyButtons adds copy buttons to all pre tags.
 function addCopyButtons() {
   const preTags = document.querySelectorAll('pre');
@@ -32,6 +34,11 @@ function addCopyButtons() {
             copyButton.classList.remove('copied');
           }, 1000);
         });
+
+      trackEvent("code_copy", {
+        page_url: window.location.href,
+        copied_code: codeTextWithoutTrailingNewline,
+      });
     });
 
     // Add the button to the pre tag.
