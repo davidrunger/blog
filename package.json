@@ -7,7 +7,7 @@
     "esbuild-dev": "node esbuild.config.js --watch"
   },
   "devDependencies": {
-    "@tailwindcss/postcss": "^4.0.9",
+    "@tailwindcss/postcss": "^4.0.12",
     "esbuild": "^0.25.1",
     "glob": "^11.0.1",
     "postcss": "^8.5.3",
