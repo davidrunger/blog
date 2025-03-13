@@ -11,7 +11,6 @@
   --bg-dark-color: #e6e6e6;
   --border-color: #dbdbdb;
   --border-hover-color: #b5b5b5;
-  --code-background-color: inherit;
   --code-text-color: #00569c;
   --danger-color: #f14668;
   --danger-hover-color: #f03a5f;
@@ -37,7 +36,6 @@
     --bg-dark-color: #17171a;
     --border-color: #5f6267;
     --border-hover-color: #bcbebd;
-    --code-background-color: #292b2e;
     --code-text-color: #63b9ff;
     --danger-color: #770018;
     --danger-hover-color: #6b0015;
@@ -226,13 +224,11 @@ li {
 }
 
 pre {
-  background-color: var(--code-background-color);
   border-radius: 0;
 }
 
 code {
   color: var(--code-text-color);
-  background-color: var(--code-background-color);
 }
 
 a,
