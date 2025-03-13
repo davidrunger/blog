@@ -46,6 +46,17 @@ jobs:
       - name: Check compiled CSS
         run: bin/check-compiled-css
 
+      - name: Move 'output/' to 'blog/'
+        run: mv output blog
+
+      - name: Launch server
+        run: ./node_modules/.bin/serve --no-clipboard > /dev/null &
+
+      - name: Take Percy snapshots
+        run: ./node_modules/.bin/percy snapshot snapshots.yml
+        env:
+          PERCY_TOKEN: '${{secrets.PERCY_TOKEN}}'
+
       - name: Deploy
         if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' }}
         uses: ./.github/actions/deploy
