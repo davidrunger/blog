@@ -50,7 +50,7 @@ jobs:
         run: mv output blog
 
       - name: Launch server
-        run: ruby -r webrick -e 'WEBrick::HTTPServer.new(:Port => 8000, :DocumentRoot => Dir.pwd).start' &
+        run: ./node_modules/.bin/serve --no-clipboard > /dev/null &
 
       - name: Take Percy snapshots
         run: ./node_modules/.bin/percy snapshot snapshots.yml
