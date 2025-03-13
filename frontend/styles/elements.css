@@ -143,10 +143,6 @@ main {
 pre {
   padding: 1rem;
 
-  /* Prism hack */
-  /* stylelint-disable declaration-no-important */
-  margin-top: 1rem !important;
-  margin-bottom: 1rem !important;
   /* stylelint-enable */
   overflow-x: auto;
   line-height: 1.15;
@@ -226,7 +222,6 @@ li {
 
     padding-right: 0.5rem;
     padding-left: 0.5rem;
-    margin-left: -0.5rem;
   }
 }
 

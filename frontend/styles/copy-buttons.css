@@ -1,20 +1,26 @@
-/* Style for code blocks with copy buttons */
-.code-block {
+.highlight {
+  display: flex;
+}
+
+.copy-button-container {
   position: relative;
+}
+
+.code-block {
+  flex-grow: 1;
 }
 
 .copy-button {
   position: absolute;
   top: 5px;
   right: 5px;
-  padding: 5px 10px;
+  padding: 2px 3px 4px;
   background: rgba(255, 255, 255, 0.1);
   border: 1px solid rgba(255, 255, 255, 0.2);
   border-radius: 4px;
   cursor: pointer;
   font-size: 12px;
   font-family: sans-serif;
-  transition: all 0.2s ease;
 }
 
 .copy-button:hover {
@@ -23,7 +29,10 @@
 }
 
 .copy-button.copied {
-  background: rgba(76, 175, 80, 0.8);
+  background: rgb(45, 105, 47);
   color: white;
-  border-color: rgba(76, 175, 80, 0.6);
+  border-color: rgb(45, 105, 47);
+  padding-left: 10px;
+  padding-right: 10px;
+  font-size: 1rem;
 }
