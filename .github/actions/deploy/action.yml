@@ -27,10 +27,6 @@ runs:
         eval "$(ssh-agent -s)"
         ssh-add ~/.ssh/id_ed25519
 
-    - name: Rename 'output/' to 'blog/'
-      shell: bash
-      run: mv output blog
-
     - name: Empty existing 'blog/' directory contents on server
       shell: bash
       run: ssh "${{ inputs.SERVER_USER_AND_IP }}" "rm -rf /root/david_runger/blog/{*,.*}"
