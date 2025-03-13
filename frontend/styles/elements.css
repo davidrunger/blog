@@ -11,8 +11,8 @@
   --bg-dark-color: #e6e6e6;
   --border-color: #dbdbdb;
   --border-hover-color: #b5b5b5;
-  --code-background-color: var(--highlighted-background-color);
-  --code-text-color: #29a0ff;
+  --code-background-color: inherit;
+  --code-text-color: #00569c;
   --danger-color: #f14668;
   --danger-hover-color: #f03a5f;
   --danger-text-background-color: #fde0e6;
