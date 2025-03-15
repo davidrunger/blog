@@ -43,11 +43,7 @@ website](https://davidrunger.com/) using Google OAuth. That test was added in
 
 ### Content Security Policy (CSP)
 
-I had previously introduced a bug when modifying my app's [Content Security Policy
-(CSP)](https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP). Setting up an effective CSP can be a
-little annoying, and there's a risk of introducing bugs when doing it (as happened to me), but the
-upside is that a well-crafted CSP can provide a significant amount of protection against various
-potential security vulnerabilities in a web app.
+I had previously introduced a bug when modifying my app's [Content Security Policy (CSP)](https://developer.mozilla.org/en-US/docs/Web/HTTP/Guides/CSP). Setting up an effective CSP can be a little annoying, and there's a risk of introducing bugs when doing it (as happened to me), but the upside is that a well-crafted CSP can provide a significant amount of protection against various potential security vulnerabilities in a web app.
 
 ### OAuth
 
