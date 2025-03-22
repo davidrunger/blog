@@ -11,16 +11,15 @@
   --bg-dark-color: #e6e6e6;
   --border-color: #dbdbdb;
   --border-hover-color: #b5b5b5;
-  --code-text-color: #00569c;
+  --code-text-color: #643ad9;
   --danger-color: #f14668;
   --danger-hover-color: #f03a5f;
   --danger-text-background-color: #fde0e6;
   --danger-text-color: #fff;
   --highlighted-background-color: #f5f5f5;
   --link-active-color: #363636;
-  --link-color: #443d8e;
-  --link-hover-color: #212121;
-  --link-visited-color: #443d8e;
+  --link-color: #1b70a2;
+  --link-hover-color: #008d9c;
   --success-color: #48c774;
   --success-hover-color: #3ec46d;
   --success-text-background-color: #effaf3;
@@ -36,16 +35,15 @@
     --bg-dark-color: #17171a;
     --border-color: #5f6267;
     --border-hover-color: #bcbebd;
-    --code-text-color: #63b9ff;
+    --code-text-color: #bba5f7;
     --danger-color: #770018;
     --danger-hover-color: #6b0015;
     --danger-text-background-color: #770018;
     --danger-text-color: #fff;
     --highlighted-background-color: #292b2e;
     --link-active-color: #fff;
-    --link-color: #38b3fb;
+    --link-color: #86cdf7;
     --link-hover-color: #c7f3ff;
-    --link-visited-color: #38b3fb;
     --success-color: #006624;
     --success-hover-color: #006122;
     --success-text-background-color: #006624;
@@ -237,11 +235,6 @@ a code {
   text-decoration: none;
 }
 
-a:visited,
-a:visited code {
-  color: var(--link-visited-color);
-}
-
 a:hover,
 a:hover code {
   color: var(--link-hover-color);
@@ -296,6 +289,10 @@ article > :not(.highlighter-rouge, p:has(img)) {
   width: 90%;
   margin-left: auto;
   margin-right: auto;
+}
+
+article a {
+  text-decoration: underline;
 }
 
 article > h2 {
