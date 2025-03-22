@@ -18,8 +18,8 @@
   --danger-text-color: #fff;
   --highlighted-background-color: #f5f5f5;
   --link-active-color: #363636;
-  --link-color: #443d8e;
-  --link-hover-color: #212121;
+  --link-color: #0065a0;
+  --link-hover-color: #008d9c;
   --link-visited-color: #443d8e;
   --success-color: #48c774;
   --success-hover-color: #3ec46d;
@@ -296,6 +296,10 @@ article > :not(.highlighter-rouge, p:has(img)) {
   width: 90%;
   margin-left: auto;
   margin-right: auto;
+}
+
+article a {
+  text-decoration: underline;
 }
 
 article > h2 {
