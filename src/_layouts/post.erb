@@ -11,16 +11,22 @@ layout: default
       <%= resource.data.subtitle %>
     </p>
   </hgroup>
-  <div>
-    <small class="lowlighted">
-      <%= resource.date.strftime("%B %d, %Y") %> · <%= resource.data.author %> |
-      <a href="https://github.com/davidrunger/blog/edit/main/src/<%= resource.relative_path %>">
-        Edit this article on GitHub
-      </a>
-    </small>
+  <div class="text-sm">
+    <div class="lowlighted">
+      <%= resource.date.strftime("%B %d, %Y") %>
+      <span class="mx-1">·</span>
+      <%= resource.data.author %>
+    </div>
   </div>
 
   <%= yield %>
+
+  <div class="mt-2 text-center text-sm">
+    <span class="text-neutral-400">This blog is open source.</span>
+    <a href="https://github.com/davidrunger/blog/edit/main/src/<%= resource.relative_path %>">
+      Improve this post.
+    </a>
+  </div>
 </article>
 
 <div id="comments"></div>
