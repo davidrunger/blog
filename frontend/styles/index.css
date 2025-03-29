@@ -5,6 +5,13 @@
 @import 'pygments.css';
 @import 'copy-buttons.css';
 
+/* This class will be applied to `body` for posts via `resource.data.layout`. We
+are specifying this CSS here via a class to override Tailwind reset that is
+pulled in when rendered via `david_runger`. */
+.post {
+  margin: 0 auto;
+}
+
 .posts-li-title {
   font-size: 1.35rem;
   line-height: 1.8rem;
