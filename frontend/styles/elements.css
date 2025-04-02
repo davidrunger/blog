@@ -200,13 +200,6 @@ footer {
   margin-top: 1rem;
 }
 
-body > header {
-  text-align: center;
-  padding-top: 1rem;
-  padding-bottom: 1rem;
-  border-bottom: var(--border-width) solid var(--border-color);
-}
-
 li {
   margin-top: 0.5rem;
   margin-bottom: 0.5rem;
