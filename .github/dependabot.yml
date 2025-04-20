@@ -5,13 +5,13 @@ updates:
     directory: "/"
     schedule:
       interval: cron
-      cronjob: '4 4 * * *'
+      cronjob: "4 4 * * *"
       timezone: America/Chicago
   - package-ecosystem: bundler
     directory: "/"
     schedule:
       interval: cron
-      cronjob: '4 4 * * *'
+      cronjob: "4 4 * * *"
       timezone: America/Chicago
     open-pull-requests-limit: 20
     allow:
@@ -20,6 +20,6 @@ updates:
     directory: "/"
     schedule:
       interval: cron
-      cronjob: '4 4 * * *'
+      cronjob: "4 4 * * *"
       timezone: America/Chicago
     open-pull-requests-limit: 20
