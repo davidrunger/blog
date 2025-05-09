@@ -17,7 +17,7 @@ GEM
       tzinfo (~> 2.0, >= 2.0.5)
     addressable (2.8.7)
       public_suffix (>= 2.0.2, < 7.0)
-    amazing_print (1.7.2)
+    amazing_print (1.8.0)
     ast (2.4.3)
     base64 (0.2.0)
     benchmark (0.4.0)
@@ -205,7 +205,7 @@ CHECKSUMS
   activemodel (7.2.2.1) sha256=8398861f9ee2c4671a8357ab39e9b38a045fd656f6685a3dd5890c2419dbfdaf
   activesupport (7.2.2.1) sha256=842bcbf8a92977f80fb4750661a237cf5dd4fdd442066b3c35e88afb488647f5
   addressable (2.8.7) sha256=462986537cf3735ab5f3c0f557f14155d778f4b43ea4f485a9deb9c8f7c58232
-  amazing_print (1.7.2) sha256=c89a1dfe4f8508c1e780871d51b8786efd100f625201f6e1d18a0d4dedaac702
+  amazing_print (1.8.0) sha256=3a76c6247a1678d46645f64751949c73e45886ab0a8a065b74c1786ec9d6cb05
   ast (2.4.3) sha256=954615157c1d6a382bc27d690d973195e79db7f55e9765ac7c481c60bdb4d383
   base64 (0.2.0) sha256=0f25e9b21a02a0cc0cea8ef92b2041035d39350946e8789c562b2d1a3da01507
   benchmark (0.4.0) sha256=0f12f8c495545e3710c3e4f0480f63f06b4c842cc94cec7f33a956f5180e874a
