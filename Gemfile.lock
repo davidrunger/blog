@@ -88,7 +88,7 @@ GEM
       activesupport (>= 5.0.0, < 8.0)
     i18n (1.14.7)
       concurrent-ruby (~> 1.0)
-    json (2.12.0)
+    json (2.12.1)
     kramdown (2.5.1)
       rexml (>= 3.3.9)
     kramdown-parser-gfm (1.1.0)
@@ -237,7 +237,7 @@ CHECKSUMS
   ffi (1.17.2-x86_64-linux-musl) sha256=97c0eb3981414309285a64dc4d466bd149e981c279a56371ef811395d68cb95c
   hash_with_dot_access (1.2.0) sha256=79d55a2698f1682e64763e959c695c9b7e60e3ae99e621a685bec69b8a809313
   i18n (1.14.7) sha256=ceba573f8138ff2c0915427f1fc5bdf4aa3ab8ae88c8ce255eb3ecf0a11a5d0f
-  json (2.12.0) sha256=b30fce000756de94c756679c7e57ed41f03f8cc8dde2d2dc00a7c44005da0a50
+  json (2.12.1) sha256=fc8fe305c17c09c8ce6bc825f9aa61bcf232d835669b10472dffa862796f203b
   kramdown (2.5.1) sha256=87bbb6abd9d3cebe4fc1f33e367c392b4500e6f8fa19dd61c0972cf4afe7368c
   kramdown-parser-gfm (1.1.0) sha256=fb39745516427d2988543bf01fc4cf0ab1149476382393e0e9c48592f6581729
   language_server-protocol (3.17.0.5) sha256=fd1e39a51a28bf3eec959379985a72e296e9f9acfce46f6a79d31ca8760803cc
