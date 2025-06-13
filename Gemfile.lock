@@ -137,7 +137,7 @@ GEM
       ffi (~> 1.0)
     regexp_parser (2.10.0)
     rexml (3.4.1)
-    roda (3.92.0)
+    roda (3.93.0)
       rack
     rouge (4.5.2)
     rubocop (1.76.1)
@@ -269,7 +269,7 @@ CHECKSUMS
   rb-inotify (0.11.1) sha256=a0a700441239b0ff18eb65e3866236cd78613d6b9f78fea1f9ac47a85e47be6e
   regexp_parser (2.10.0) sha256=cb6f0ddde88772cd64bff1dbbf68df66d376043fe2e66a9ef77fcb1b0c548c61
   rexml (3.4.1) sha256=c74527a9a0a04b4ec31dbe0dc4ed6004b960af943d8db42e539edde3a871abca
-  roda (3.92.0) sha256=2da31fc792c00dd6927d336519a13bea29e1fc500821ccf60471c37b9732619e
+  roda (3.93.0) sha256=f4246e1a0dcae64d9abda11b91a2ab75395580f8748b25045a5b52a97c8c164a
   rouge (4.5.2) sha256=034233fb8a69d0ad0e0476943184e04cb971b68e3c2239724e02f428878b68a3
   rubocop (1.76.1) sha256=e15a2d750794cf2157d2de8b1b403dfa71b8dc3957a22ae6043b1bdf21e7e0e7
   rubocop-ast (1.45.1) sha256=94042e49adc17f187ba037b33f941ba7398fede77cdf4bffafba95190a473a3e
