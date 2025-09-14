@@ -126,7 +126,7 @@ GEM
       racc
     prism (1.5.0)
     public_suffix (6.0.2)
-    puma (7.0.2)
+    puma (7.0.3)
       nio4r (~> 2.0)
     racc (1.8.1)
     rack (3.2.1)
@@ -260,7 +260,7 @@ CHECKSUMS
   parser (3.3.9.0) sha256=94d6929354b1a6e3e1f89d79d4d302cc8f5aa814431a6c9c7e0623335d7687f2
   prism (1.5.0) sha256=4aeaafa130af5f480fe93add6aeb6ddf39cd646987f0d1608d1be84381534266
   public_suffix (6.0.2) sha256=bfa7cd5108066f8c9602e0d6d4114999a5df5839a63149d3e8b0f9c1d3558394
-  puma (7.0.2) sha256=cb419624b3dbd122852ca4d7ced87e40a51c2b08c6166b302c49ef5b3de20c82
+  puma (7.0.3) sha256=131b5fd02c89c2445114cdce906114e75ea4cf22842fcf5bbee4500f1c868ba5
   racc (1.8.1) sha256=4a7f6929691dbec8b5209a0b373bc2614882b55fc5d2e447a21aaa691303d62f
   rack (3.2.1) sha256=30af3f7e5ec21b0d14d822cf24446048dba5f651b617c7e97405b604f20a9e33
   rainbow (3.1.1) sha256=039491aa3a89f42efa1d6dec2fc4e62ede96eb6acd95e52f1ad581182b79bc6a
