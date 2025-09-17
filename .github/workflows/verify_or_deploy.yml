@@ -39,7 +39,7 @@ jobs:
         run: bin/rubocop --format clang
 
       - name: Install JavaScript Packages
-        run: yarn install --check-files
+        run: pnpm install
 
       - name: Build
         run: bin/bridgetown deploy

@@ -18,7 +18,7 @@ A lot of the tools that I create for myself are programs that I execute from a t
 
 For example, I often want to pull updates from a GitHub repository down to my local machine, and then rebase my branch onto that updated version of the `main` branch. I do this by executing in my terminal a command that I've written called `gform` (which stands for "git fetch origin and rebase with main").
 
-In addition to updating my branch with the latest version of the `main` branch, this `gform` command also executes another program that I've written, called `install-packages-in-background`, which looks at the project's dependency lock files (the `Gemfile.lock`, `yarn.lock`, etc) and checks whether the relevant package installation command (e.g. `bundle install` or `yarn install`) has ever been executed on my machine for the current version of the dependency lock file. If not, then my `install-packages-in-background` script will execute the relevant package installation command (in the background).
+In addition to updating my branch with the latest version of the `main` branch, this `gform` command also executes another program that I've written, called `install-packages-in-background`, which looks at the project's dependency lock files (the `Gemfile.lock`, `pnpm-lock.yaml`, etc) and checks whether the relevant package installation command (e.g. `bundle install` or `pnpm install`) has ever been executed on my machine for the current version of the dependency lock file. If not, then my `install-packages-in-background` script will execute the relevant package installation command (in the background).
 
 ## Which language to use?
 
