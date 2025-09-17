@@ -4,7 +4,7 @@ ruby file: '.ruby-version'
 
 source 'https://rubygems.org'
 
-gem 'bridgetown', '~> 1.3.4'
+gem 'bridgetown', '~> 2.0.0'
 
 group :development do
   gem 'puma'
