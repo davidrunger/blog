@@ -10,8 +10,8 @@
 <%= feed_meta %>
 <link rel="icon" type="image/png" sizes="32x32" href="<%= site.base_path %>/images/favicon/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="<%= site.base_path %>/images/favicon/favicon-16x16.png">
-<link rel="stylesheet" href="<%= webpack_path :css %>" data-turbo-track="reload" />
-<script src="<%= webpack_path :js %>" defer></script>
+<link rel="stylesheet" href="<%= asset_path :css %>" data-turbo-track="reload" />
+<script src="<%= asset_path :js %>" defer></script>
 <% unless ENV.fetch('BRIDGETOWN_ENV', nil) == 'production' %>
   <%= live_reload_dev_js %>
 <% end %>

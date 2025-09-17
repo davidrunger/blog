@@ -30,13 +30,13 @@ namespace :frontend do
   desc 'Build the frontend with esbuild for deployment'
   task :build do
     sh 'touch frontend/styles/jit-refresh.css'
-    sh 'yarn run esbuild'
+    sh 'pnpm run esbuild'
   end
 
   desc 'Watch the frontend with esbuild during development'
   task :dev do
     sh('touch frontend/styles/jit-refresh.css')
-    sh('yarn run esbuild-dev')
+    sh('pnpm run esbuild-dev')
   rescue Interrupt
     puts("\nReceived interrupt. Exiting.")
   end
