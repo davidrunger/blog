@@ -7,7 +7,7 @@
     "esbuild-dev": "node esbuild.config.js --watch"
   },
   "devDependencies": {
-    "@percy/cli": "^1.31.2",
+    "@percy/cli": "^1.31.3",
     "@tailwindcss/postcss": "^4.1.14",
     "esbuild": "^0.25.10",
     "glob": "^11.0.3",
