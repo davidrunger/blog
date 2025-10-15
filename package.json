@@ -9,7 +9,7 @@
   "devDependencies": {
     "@percy/cli": "^1.31.3",
     "@tailwindcss/postcss": "^4.1.14",
-    "esbuild": "^0.25.10",
+    "esbuild": "^0.25.11",
     "glob": "^11.0.3",
     "postcss": "^8.5.6",
     "postcss-import": "^16.1.1",
