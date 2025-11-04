@@ -195,9 +195,9 @@ GEM
       prism (>= 0.24.0)
       rubocop (>= 1.72.0)
     securerandom (0.4.1)
-    serbea (2.3.0)
-      erubi (>= 1.11)
-      tilt (>= 2.1)
+    serbea (2.4.0)
+      erubi (>= 1.13)
+      tilt (>= 2.6)
     signalize (1.3.1)
       concurrent-ruby (~> 1.2)
     streamlined (0.6.1)
@@ -324,7 +324,7 @@ CHECKSUMS
   ruby-progressbar (1.13.0) sha256=80fc9c47a9b640d6834e0dc7b3c94c9df37f08cb072b7761e4a71e22cff29b33
   runger_style (5.10.0) sha256=6eb54391055adef58e5c6f200ee633e1c1099f4e49b40d843714a26b2fff2a26
   securerandom (0.4.1) sha256=cc5193d414a4341b6e225f0cb4446aceca8e50d5e1888743fac16987638ea0b1
-  serbea (2.3.0) sha256=9a37331d1095bcea2636f2860f690ee4ff7abf923f97d78a33b7945072c42587
+  serbea (2.4.0) sha256=01277a3784ee54b0b938c8d2a973ae32a7a29316b7ff2946f7a1c47c20fd8774
   signalize (1.3.1) sha256=1afd7b717cfd17193cea5404a9b694b1adf793f53213c1f9c540c3a2341fa7f8
   streamlined (0.6.1) sha256=a45b94896c0709b155d36853a3479419a4c9d4e1a0effe6797cfd39adf5d0417
   stringio (3.1.7) sha256=5b78b7cb242a315fb4fca61a8255d62ec438f58da2b90be66048546ade4507fa
