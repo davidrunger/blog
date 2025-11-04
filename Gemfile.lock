@@ -20,18 +20,18 @@ GEM
     base64 (0.3.0)
     benchmark (0.5.0)
     bigdecimal (3.3.1)
-    bridgetown (2.0.3)
-      bridgetown-builder (= 2.0.3)
-      bridgetown-core (= 2.0.3)
-      bridgetown-foundation (= 2.0.3)
-      bridgetown-paginate (= 2.0.3)
-    bridgetown-builder (2.0.3)
-      bridgetown-core (= 2.0.3)
-    bridgetown-core (2.0.3)
+    bridgetown (2.0.4)
+      bridgetown-builder (= 2.0.4)
+      bridgetown-core (= 2.0.4)
+      bridgetown-foundation (= 2.0.4)
+      bridgetown-paginate (= 2.0.4)
+    bridgetown-builder (2.0.4)
+      bridgetown-core (= 2.0.4)
+    bridgetown-core (2.0.4)
       activesupport (>= 6.0, < 8.0)
       addressable (~> 2.4)
       amazing_print (~> 1.2)
-      bridgetown-foundation (= 2.0.3)
+      bridgetown-foundation (= 2.0.4)
       csv (~> 3.2)
       dry-inflector (>= 1.0)
       erubi (~> 1.9)
@@ -56,12 +56,12 @@ GEM
       zeitwerk (~> 2.5)
     bridgetown-feed (4.0.0)
       bridgetown (>= 1.2.0)
-    bridgetown-foundation (2.0.3)
+    bridgetown-foundation (2.0.4)
       hash_with_dot_access (~> 2.0)
       inclusive (~> 1.0)
       zeitwerk (~> 2.5)
-    bridgetown-paginate (2.0.3)
-      bridgetown-core (= 2.0.3)
+    bridgetown-paginate (2.0.4)
+      bridgetown-core (= 2.0.4)
     bridgetown-seo-tag (7.0.1)
       bridgetown (>= 1.3)
     bridgetown-sitemap (3.0.0)
@@ -195,12 +195,12 @@ GEM
       prism (>= 0.24.0)
       rubocop (>= 1.72.0)
     securerandom (0.4.1)
-    serbea (2.3.0)
-      erubi (>= 1.11)
-      tilt (>= 2.1)
+    serbea (2.4.0)
+      erubi (>= 1.13)
+      tilt (>= 2.6)
     signalize (1.3.1)
       concurrent-ruby (~> 1.2)
-    streamlined (0.6.1)
+    streamlined (0.6.2)
       serbea (>= 2.1)
       zeitwerk (~> 2.5)
     stringio (3.1.7)
@@ -212,7 +212,7 @@ GEM
     unicode-display_width (3.2.0)
       unicode-emoji (~> 4.1)
     unicode-emoji (4.1.0)
-    uri (1.1.0)
+    uri (1.1.1)
     zeitwerk (2.7.3)
 
 PLATFORMS
@@ -244,12 +244,12 @@ CHECKSUMS
   base64 (0.3.0) sha256=27337aeabad6ffae05c265c450490628ef3ebd4b67be58257393227588f5a97b
   benchmark (0.5.0) sha256=465df122341aedcb81a2a24b4d3bd19b6c67c1530713fd533f3ff034e419236c
   bigdecimal (3.3.1) sha256=eaa01e228be54c4f9f53bf3cc34fe3d5e845c31963e7fcc5bedb05a4e7d52218
-  bridgetown (2.0.3) sha256=812e038d0310c7e875fb5940589738c9cfcb34be3147c6559ffd62ecc27233fe
-  bridgetown-builder (2.0.3) sha256=c8061006b739b5f6b89a484bc96e8f23e59957672d3a0c58f2538cfa87e97d88
-  bridgetown-core (2.0.3) sha256=726359ce05a7bd13ef77486b7922392d0dc9cd1118fb1c363682d1a556e7ef16
+  bridgetown (2.0.4) sha256=d738e267410c99950105e76b91fe2f8f2ae28c37423482236e416a00b27fc186
+  bridgetown-builder (2.0.4) sha256=1271796c97e09c3e629a648d3799a08128ecfa0c442d7bb7466d208c37af289c
+  bridgetown-core (2.0.4) sha256=9d284176992dac54e83ce65b1dd04eedacd3b1a1bdbead03f9df17a03a82e106
   bridgetown-feed (4.0.0) sha256=bd41d17f34a8bbaac8db66fe89a91b3959e797a24551ab695e899a89994ae6bb
-  bridgetown-foundation (2.0.3) sha256=19025cd808c0e3315af54b93a18c3e043627f7ae8b546b8994793bbf97e6cfe5
-  bridgetown-paginate (2.0.3) sha256=c5d2ba8f79b25f1f6fe67a6cc7dd397ab85b7bcfc4ddd58d76bcd6430e513860
+  bridgetown-foundation (2.0.4) sha256=805368c8a5c5428f9f7300a7058688545261fcbc30e8ea919deb6fa37e99df4d
+  bridgetown-paginate (2.0.4) sha256=42cda50e749958b61a54a834933e5c8547e7097b649049766b7705858b78b0b9
   bridgetown-seo-tag (7.0.1) sha256=bc876c646822c392ce14123d111bdc2a62f05f5a14fa86c3d42e269900b02e5b
   bridgetown-sitemap (3.0.0) sha256=3992fcd4c030bb0f95a05aa2a88a6f41d1e7f2b5c04a6d67970c37f34b069102
   bridgetown-svg-inliner (2.1.1) sha256=8a081a54a4b7eb6d9b0f23a27e025dc84c86c967fe46b424bb29d0e469f693b1
@@ -324,9 +324,9 @@ CHECKSUMS
   ruby-progressbar (1.13.0) sha256=80fc9c47a9b640d6834e0dc7b3c94c9df37f08cb072b7761e4a71e22cff29b33
   runger_style (5.10.0) sha256=6eb54391055adef58e5c6f200ee633e1c1099f4e49b40d843714a26b2fff2a26
   securerandom (0.4.1) sha256=cc5193d414a4341b6e225f0cb4446aceca8e50d5e1888743fac16987638ea0b1
-  serbea (2.3.0) sha256=9a37331d1095bcea2636f2860f690ee4ff7abf923f97d78a33b7945072c42587
+  serbea (2.4.0) sha256=01277a3784ee54b0b938c8d2a973ae32a7a29316b7ff2946f7a1c47c20fd8774
   signalize (1.3.1) sha256=1afd7b717cfd17193cea5404a9b694b1adf793f53213c1f9c540c3a2341fa7f8
-  streamlined (0.6.1) sha256=a45b94896c0709b155d36853a3479419a4c9d4e1a0effe6797cfd39adf5d0417
+  streamlined (0.6.2) sha256=58c73a95d0decd3e4f5739be22be1d629682669d4093829189cb3edf7e332de6
   stringio (3.1.7) sha256=5b78b7cb242a315fb4fca61a8255d62ec438f58da2b90be66048546ade4507fa
   thor (1.4.0) sha256=8763e822ccb0f1d7bee88cde131b19a65606657b847cc7b7b4b82e772bcd8a3d
   tilt (2.6.1) sha256=35a99bba2adf7c1e362f5b48f9b581cce4edfba98117e34696dde6d308d84770
@@ -334,7 +334,7 @@ CHECKSUMS
   tzinfo (2.0.6) sha256=8daf828cc77bcf7d63b0e3bdb6caa47e2272dcfaf4fbfe46f8c3a9df087a829b
   unicode-display_width (3.2.0) sha256=0cdd96b5681a5949cdbc2c55e7b420facae74c4aaf9a9815eee1087cb1853c42
   unicode-emoji (4.1.0) sha256=4997d2d5df1ed4252f4830a9b6e86f932e2013fbff2182a9ce9ccabda4f325a5
-  uri (1.1.0) sha256=e23a2061c1e924efa2cc3016f517f888e7c866c0d7f6531f5cded089f2b9e625
+  uri (1.1.1) sha256=379fa58d27ffb1387eaada68c749d1426738bd0f654d812fcc07e7568f5c57c6
   zeitwerk (2.7.3) sha256=b2e86b4a9b57d26ba68a15230dcc7fe6f040f06831ce64417b0621ad96ba3e85
 
 RUBY VERSION
