@@ -169,7 +169,7 @@ GEM
     roda (3.99.0)
       rack
     rouge (4.6.1)
-    rubocop (1.81.7)
+    rubocop (1.82.0)
       json (~> 2.3)
       language_server-protocol (~> 3.17.0.2)
       lint_roller (~> 1.1.0)
@@ -177,7 +177,7 @@ GEM
       parser (>= 3.3.0.2)
       rainbow (>= 2.2.2, < 4.0)
       regexp_parser (>= 2.9.3, < 3.0)
-      rubocop-ast (>= 1.47.1, < 2.0)
+      rubocop-ast (>= 1.48.0, < 2.0)
       ruby-progressbar (~> 1.7)
       unicode-display_width (>= 2.4.0, < 4.0)
     rubocop-ast (1.48.0)
@@ -317,7 +317,7 @@ CHECKSUMS
   rexml (3.4.4) sha256=19e0a2c3425dfbf2d4fc1189747bdb2f849b6c5e74180401b15734bc97b5d142
   roda (3.99.0) sha256=05d0f44bd3431bd429f8dd799d8eb5136f04abf469776ce722d6f8c94950d42f
   rouge (4.6.1) sha256=5075346d5797d6864be93f7adc75a16047a7dbfa572c63c502419ffa582c77de
-  rubocop (1.81.7) sha256=6fb5cc298c731691e2a414fe0041a13eb1beed7bab23aec131da1bcc527af094
+  rubocop (1.82.0) sha256=237b7dc24952d7ec469a9593c7a5283315515e2e7dc24ac91532819c254fc4ec
   rubocop-ast (1.48.0) sha256=22df9bbf3f7a6eccde0fad54e68547ae1e2a704bf8719e7c83813a99c05d2e76
   rubocop-performance (1.26.1) sha256=cd19b936ff196df85829d264b522fd4f98b6c89ad271fa52744a8c11b8f71834
   rubocop-rake (0.7.1) sha256=3797f2b6810c3e9df7376c26d5f44f3475eda59eb1adc38e6f62ecf027cbae4d
