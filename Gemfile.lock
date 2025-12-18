@@ -19,7 +19,7 @@ GEM
     ast (2.4.3)
     base64 (0.3.0)
     benchmark (0.5.0)
-    bigdecimal (4.0.0)
+    bigdecimal (4.0.1)
     bridgetown (2.0.5)
       bridgetown-builder (= 2.0.5)
       bridgetown-core (= 2.0.5)
@@ -243,7 +243,7 @@ CHECKSUMS
   ast (2.4.3) sha256=954615157c1d6a382bc27d690d973195e79db7f55e9765ac7c481c60bdb4d383
   base64 (0.3.0) sha256=27337aeabad6ffae05c265c450490628ef3ebd4b67be58257393227588f5a97b
   benchmark (0.5.0) sha256=465df122341aedcb81a2a24b4d3bd19b6c67c1530713fd533f3ff034e419236c
-  bigdecimal (4.0.0) sha256=ec797dffef5566eeccf9f1a39df8fc78ef9c39158dc85b2036d5f11c7e0d3b86
+  bigdecimal (4.0.1) sha256=8b07d3d065a9f921c80ceaea7c9d4ae596697295b584c296fe599dd0ad01c4a7
   bridgetown (2.0.5) sha256=9c6741d368c47f9542494696f1e516b1cb03afe3295c03b42e0772858795b2b5
   bridgetown-builder (2.0.5) sha256=f493c0081086c0dec6db1fed0750db580c4f21b50d14d59d4e39aa2874351fe7
   bridgetown-core (2.0.5) sha256=539fdc7897f2dcc2c5d7180c53813a345747be762a53315c27cd54ae3e2b5105
