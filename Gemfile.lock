@@ -67,7 +67,7 @@ GEM
       json
     csv (3.3.5)
     date (3.5.1)
-    dry-inflector (1.2.0)
+    dry-inflector (1.3.0)
     erb (6.0.1)
     erubi (1.13.1)
     faraday (2.14.0)
@@ -258,7 +258,7 @@ CHECKSUMS
   console (1.34.2) sha256=1c036abf606ccec83f9dc28f0c31710fe5936ffe7ba5d235ae2865590a482d58
   csv (3.3.5) sha256=6e5134ac3383ef728b7f02725d9872934f523cb40b961479f69cf3afa6c8e73f
   date (3.5.1) sha256=750d06384d7b9c15d562c76291407d89e368dda4d4fff957eb94962d325a0dc0
-  dry-inflector (1.2.0) sha256=22f5d0b50fd57074ae57e2ca17e3b300e57564c218269dcf82ff3e42d3f38f2e
+  dry-inflector (1.3.0) sha256=441082dde958db39df7353c71e520c05732e8da9ace28c78da2d0f1d6c669fa3
   erb (6.0.1) sha256=28ecdd99c5472aebd5674d6061e3c6b0a45c049578b071e5a52c2a7f13c197e5
   erubi (1.13.1) sha256=a082103b0885dbc5ecf1172fede897f9ebdb745a4b97a5e8dc63953db1ee4ad9
   faraday (2.14.0) sha256=8699cfe5d97e55268f2596f9a9d5a43736808a943714e3d9a53e6110593941cd
