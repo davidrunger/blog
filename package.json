@@ -15,7 +15,7 @@
     "postcss-import": "^16.1.1",
     "postcss-load-config": "^6.0.1",
     "read-cache": "^1.0.0",
-    "serve": "^14.2.5",
+    "serve": "^14.2.6",
     "tailwindcss": "^4.2.1"
   },
   "dependencies": {
