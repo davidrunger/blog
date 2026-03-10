@@ -56,7 +56,7 @@ Before starting the upgrade process, verify that your application is compatible 
 
 ## Step-by-step upgrade runbook (Postgres 17 to 18 example)
 
-Each step below is intended to be copy/pasted **individually**, with you verifying output before moving on.
+Each step below is intended to be copy/pasted **individually** on your server machine, with you verifying output before moving on.
 
 ---
 
