@@ -31,7 +31,45 @@ If that's all that you're looking for, then maybe copy-paste that code and stop 
 **One additional note, though**: for this to work, you'll need to add the `selenium-devtools` gem to
 the `test` group of your Gemfile, if it's not there already.
 
-If you're interested in some additional background context, though, read on.
+**Update (2026-03-25):** The above code works when using `selenium-webdriver` for feature specs. Since then, I have [switched](https://github.com/davidrunger/david_runger/pull/2773) to using `cuprite` for feature specs. The relevant code with Cuprite is a little different, and it looks like this:
+
+```rb
+context 'when OmniAuth test mode is disabled', :permit_all_external_requests do
+  around do |spec|
+    original_omni_auth_test_mode = OmniAuth.config.test_mode
+    OmniAuth.config.test_mode = false
+
+    spec.run
+  ensure
+    OmniAuth.config.test_mode = original_omni_auth_test_mode
+  end
+
+  context 'when Google responds with "This is Google OAuth."' do
+    let(:google_response_content) { 'This is Google OAuth.' }
+
+    before do
+      browser = page.driver.browser
+      browser.network.intercept
+      browser.on(:request) do |request|
+        if request.match?(%r{\Ahttps://accounts.google.com/o/oauth2/auth\?})
+          request.respond(body: google_response_content)
+        else
+          request.continue
+        end
+      end
+    end
+
+    it "renders Google's response" do
+      visit(new_user_session_path)
+      expect(page).to have_css('google-sign-in-button')
+
+      click_sign_in_with_google
+
+      expect(page).to have_text(google_response_content)
+    end
+  end
+end
+```
 
 ## Why, though? Some background.
 
