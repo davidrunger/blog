@@ -45,6 +45,9 @@ jobs:
       - name: Run RuboCop
         run: bin/rubocop --format clang
 
+      - name: Check pnpm version
+        run: pnpm --version
+
       - name: Install JavaScript Packages
         run: pnpm install
 
