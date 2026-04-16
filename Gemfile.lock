@@ -54,7 +54,7 @@ GEM
       bridgetown-core (= 2.1.2)
     bridgetown-seo-tag (7.0.1)
       bridgetown (>= 1.3)
-    bridgetown-sitemap (3.0.2)
+    bridgetown-sitemap (3.0.3)
       bridgetown (>= 1.3.0, < 3.0)
     bridgetown-svg-inliner (3.0.0)
       bridgetown (>= 2.0, < 4.0)
@@ -254,7 +254,7 @@ CHECKSUMS
   bridgetown-foundation (2.1.2) sha256=bfa7b45986fb325ab0b3ac0bcb12687a5ce689e56a1c48bbebf326a1e892f6dc
   bridgetown-paginate (2.1.2) sha256=70b05ab44c09fc6ba3b8433852cc5961ce4f458a3eda3ceeffca893e34bbaa76
   bridgetown-seo-tag (7.0.1) sha256=bc876c646822c392ce14123d111bdc2a62f05f5a14fa86c3d42e269900b02e5b
-  bridgetown-sitemap (3.0.2) sha256=e2faa0bc77830c23ab3ae9f64c30fe383319d1c5834fcf1154eae6fa333c393b
+  bridgetown-sitemap (3.0.3) sha256=f6abfa501cab5f12690f818a4f7a82def1ce353d4b3581226821f5c1fa5ffbc8
   bridgetown-svg-inliner (3.0.0) sha256=03d68674c0bece298935b9d82782f68846f9d94d3033212fc7872b9de6b5632f
   concurrent-ruby (1.3.6) sha256=6b56837e1e7e5292f9864f34b69c5a2cbc75c0cf5338f1ce9903d10fa762d5ab
   console (1.34.3) sha256=869fbd74697efc4c606f102d2812b0b008e4e7fd738a91c591e8577140ec0dcc
