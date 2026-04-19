@@ -6,7 +6,7 @@ GEM
     amazing_print (1.8.1)
     ast (2.4.3)
     base64 (0.3.0)
-    bigdecimal (4.1.1)
+    bigdecimal (4.1.2)
     bridgetown (2.1.2)
       bridgetown-builder (= 2.1.2)
       bridgetown-core (= 2.1.2)
@@ -246,7 +246,7 @@ CHECKSUMS
   amazing_print (1.8.1) sha256=f53b4e1881f53f9663cb222840c7a027d0e61d46cc908366965739559c0d6d68
   ast (2.4.3) sha256=954615157c1d6a382bc27d690d973195e79db7f55e9765ac7c481c60bdb4d383
   base64 (0.3.0) sha256=27337aeabad6ffae05c265c450490628ef3ebd4b67be58257393227588f5a97b
-  bigdecimal (4.1.1) sha256=1c09efab961da45203c8316b0cdaec0ff391dfadb952dd459584b63ebf8054ca
+  bigdecimal (4.1.2) sha256=53d217666027eab4280346fba98e7d5b66baaae1b9c3c1c0ffe89d48188a3fbd
   bridgetown (2.1.2) sha256=ed59d10f7ccdffc4b4359864fbf36528d26baf65c77743ddfd4b90555aa50c06
   bridgetown-builder (2.1.2) sha256=01fe585dcab5126a12f66a936b71bb58b61eab074467f0b9ff3dfb45e88f6315
   bridgetown-core (2.1.2) sha256=4f74ba15bb806f06bcf78fa4750b5a009b78d9b7a0aef5661873df54c31ada89
