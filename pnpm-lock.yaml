@@ -40,8 +40,8 @@ importers:
         specifier: ^14.2.6
         version: 14.2.6
       tailwindcss:
-        specifier: ^4.2.2
-        version: 4.2.2
+        specifier: ^4.2.3
+        version: 4.2.3
 
 packages:
 
@@ -1403,10 +1403,7 @@ snapshots:
     dependencies:
       '@percy/cli-command': 1.31.11
     transitivePeerDependencies:
-      - bufferutil
-      - supports-color
       - typescript
-      - utf-8-validate
 
   '@percy/cli-command@1.31.11':
     dependencies:
@@ -1423,10 +1420,7 @@ snapshots:
     dependencies:
       '@percy/cli-command': 1.31.11
     transitivePeerDependencies:
-      - bufferutil
-      - supports-color
       - typescript
-      - utf-8-validate
 
   '@percy/cli-doctor@1.31.11':
     dependencies:
@@ -1462,10 +1456,7 @@ snapshots:
       '@percy/cli-command': 1.31.11
       yaml: 2.8.3
     transitivePeerDependencies:
-      - bufferutil
-      - supports-color
       - typescript
-      - utf-8-validate
 
   '@percy/cli-upload@1.31.11':
     dependencies:
@@ -1473,10 +1464,7 @@ snapshots:
       fast-glob: 3.3.3
       image-size: 1.2.1
     transitivePeerDependencies:
-      - bufferutil
-      - supports-color
       - typescript
-      - utf-8-validate
 
   '@percy/cli@1.31.11':
     dependencies:
