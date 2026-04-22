@@ -40,8 +40,8 @@ importers:
         specifier: ^14.2.6
         version: 14.2.6
       tailwindcss:
-        specifier: ^4.2.3
-        version: 4.2.3
+        specifier: ^4.2.4
+        version: 4.2.4
 
 packages:
 
@@ -1201,9 +1201,6 @@ packages:
     os: [darwin, linux, win32, freebsd, openbsd, netbsd, sunos, android]
     hasBin: true
 
-  tailwindcss@4.2.3:
-    resolution: {integrity: sha512-fA/NX5gMf0ooCLISgB0wScaWgaj6rjTN2SVAwleURjiya7ITNkV+VMmoHtKkldP6CIZoYCZyxb8zP/e2TWoEtQ==}
-
   tailwindcss@4.2.4:
     resolution: {integrity: sha512-HhKppgO81FQof5m6TEnuBWCZGgfRAWbaeOaGT00KOy/Pf/j6oUihdvBpA7ltCeAvZpFhW3j0PTclkxsd4IXYDA==}
 
@@ -1403,10 +1400,7 @@ snapshots:
     dependencies:
       '@percy/cli-command': 1.31.11
     transitivePeerDependencies:
-      - bufferutil
-      - supports-color
       - typescript
-      - utf-8-validate
 
   '@percy/cli-command@1.31.11':
     dependencies:
@@ -1423,10 +1417,7 @@ snapshots:
     dependencies:
       '@percy/cli-command': 1.31.11
     transitivePeerDependencies:
-      - bufferutil
-      - supports-color
       - typescript
-      - utf-8-validate
 
   '@percy/cli-doctor@1.31.11':
     dependencies:
@@ -1462,10 +1453,7 @@ snapshots:
       '@percy/cli-command': 1.31.11
       yaml: 2.8.3
     transitivePeerDependencies:
-      - bufferutil
-      - supports-color
       - typescript
-      - utf-8-validate
 
   '@percy/cli-upload@1.31.11':
     dependencies:
@@ -1473,10 +1461,7 @@ snapshots:
       fast-glob: 3.3.3
       image-size: 1.2.1
     transitivePeerDependencies:
-      - bufferutil
-      - supports-color
       - typescript
-      - utf-8-validate
 
   '@percy/cli@1.31.11':
     dependencies:
@@ -2395,8 +2380,6 @@ snapshots:
   supports-preserve-symlinks-flag@1.0.0: {}
 
   systeminformation@5.31.5: {}
-
-  tailwindcss@4.2.3: {}
 
   tailwindcss@4.2.4: {}
 
