@@ -1,4 +1,5 @@
-onlyBuiltDependencies:
-  - '@percy/core'
-  - '@tailwindcss/oxide'
-  - esbuild
+allowBuilds:
+  '@percy/core': true
+  esbuild: true
+  '@tailwindcss/oxide': true
+minimumReleaseAge: 0
