@@ -2,7 +2,7 @@
 
 ruby file: '.ruby-version'
 
-source 'https://rubygems.org'
+source 'https://rubygems.org', cooldown: 5
 
 gem 'bridgetown', '~> 2.2.0'
 

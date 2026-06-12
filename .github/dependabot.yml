@@ -7,12 +7,16 @@ updates:
       interval: cron
       cronjob: "4 4 * * *"
       timezone: America/Chicago
+    cooldown:
+      default-days: 5
   - package-ecosystem: bundler
     directory: "/"
     schedule:
       interval: cron
       cronjob: "4 4 * * *"
       timezone: America/Chicago
+    cooldown:
+      default-days: 5
     open-pull-requests-limit: 20
     allow:
       - dependency-type: all
@@ -22,4 +26,6 @@ updates:
       interval: cron
       cronjob: "4 4 * * *"
       timezone: America/Chicago
+    cooldown:
+      default-days: 5
     open-pull-requests-limit: 20
