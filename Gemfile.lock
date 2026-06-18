@@ -7,19 +7,19 @@ GEM
     ast (2.4.3)
     base64 (0.3.0)
     bigdecimal (4.1.2)
-    bridgetown (2.2.1)
-      bridgetown-builder (= 2.2.1)
-      bridgetown-core (= 2.2.1)
-      bridgetown-foundation (= 2.2.1)
-      bridgetown-paginate (= 2.2.1)
-    bridgetown-builder (2.2.1)
-      bridgetown-core (= 2.2.1)
-    bridgetown-core (2.2.1)
+    bridgetown (2.2.0)
+      bridgetown-builder (= 2.2.0)
+      bridgetown-core (= 2.2.0)
+      bridgetown-foundation (= 2.2.0)
+      bridgetown-paginate (= 2.2.0)
+    bridgetown-builder (2.2.0)
+      bridgetown-core (= 2.2.0)
+    bridgetown-core (2.2.0)
       addressable (~> 2.4)
       amazing_print (~> 1.2)
       base64 (>= 0.3)
       bigdecimal (>= 3.2)
-      bridgetown-foundation (= 2.2.1)
+      bridgetown-foundation (= 2.2.0)
       csv (~> 3.2)
       erubi (~> 1.9)
       faraday (~> 2.0)
@@ -36,7 +36,7 @@ GEM
       rake (>= 13.0)
       roda (~> 3.46)
       rouge (>= 3.0, < 5.0)
-      samovar (= 2.4.1)
+      samovar (>= 2.4)
       securerandom (~> 0.4)
       serbea (>= 2.4.1)
       signalize (~> 1.3)
@@ -45,13 +45,13 @@ GEM
       zeitwerk (>= 2.7.3)
     bridgetown-feed (4.0.0)
       bridgetown (>= 1.2.0)
-    bridgetown-foundation (2.2.1)
+    bridgetown-foundation (2.2.0)
       dry-inflector (>= 1.0)
       hash_with_dot_access (~> 2.0)
       inclusive (~> 1.0)
       zeitwerk (~> 2.5)
-    bridgetown-paginate (2.2.1)
-      bridgetown-core (= 2.2.1)
+    bridgetown-paginate (2.2.0)
+      bridgetown-core (= 2.2.0)
     bridgetown-seo-tag (7.0.1)
       bridgetown (>= 1.3)
     bridgetown-sitemap (3.0.3)
@@ -115,7 +115,6 @@ GEM
       rb-fsevent (~> 0.10, >= 0.10.3)
       rb-inotify (~> 0.9, >= 0.9.10)
     logger (1.7.0)
-    mapping (1.1.3)
     mini_portile2 (2.8.9)
     net-http (0.9.1)
       uri (>= 0.11.1)
@@ -198,9 +197,8 @@ GEM
     runger_style (5.13.1)
       prism (>= 0.24.0)
       rubocop (>= 1.72.0)
-    samovar (2.4.1)
+    samovar (2.4.2)
       console (~> 1.0)
-      mapping (~> 1.0)
     securerandom (0.4.1)
     serbea (2.4.1)
       erubi (>= 1.13)
@@ -247,12 +245,12 @@ CHECKSUMS
   ast (2.4.3) sha256=954615157c1d6a382bc27d690d973195e79db7f55e9765ac7c481c60bdb4d383
   base64 (0.3.0) sha256=27337aeabad6ffae05c265c450490628ef3ebd4b67be58257393227588f5a97b
   bigdecimal (4.1.2) sha256=53d217666027eab4280346fba98e7d5b66baaae1b9c3c1c0ffe89d48188a3fbd
-  bridgetown (2.2.1) sha256=b47942fedef55528799ddeb350bd66e369505cae74d5779536c7638be71f69ed
-  bridgetown-builder (2.2.1) sha256=72af89059a75adcd55fb246f1414bf22ded6d498677f5ea06a8b218b7fba5f1b
-  bridgetown-core (2.2.1) sha256=2db48a912f5f7eeedebde7376d6b57209aa2d2cbb5408a13ce2f9f1488fe1dbf
+  bridgetown (2.2.0) sha256=87f7f7f0ee8c2d286b6fd921e5dc132036fc49cf26b9aad4d56007b981efb55b
+  bridgetown-builder (2.2.0) sha256=3d91c25107e9b76fcdfaf79731452823a06298bc4d7d345361c4b3859158aadc
+  bridgetown-core (2.2.0) sha256=799b3d4d915d78f540f7ffe7f0c38c03123c46714fc0f145017dd8ffe31e8d1b
   bridgetown-feed (4.0.0) sha256=bd41d17f34a8bbaac8db66fe89a91b3959e797a24551ab695e899a89994ae6bb
-  bridgetown-foundation (2.2.1) sha256=f6674833fb8dad316ac5a802ce4f6de8b6f1c454cb8daf98e84e7597f14d44de
-  bridgetown-paginate (2.2.1) sha256=7be66b9e3b6070afc46b0c3e4b9502678c7d08bddf0ea616c620db09ab0e54e8
+  bridgetown-foundation (2.2.0) sha256=bfb55ce0c13df63d73655ed7936d101b3e3756f30de44ae19d01442b77bf3f56
+  bridgetown-paginate (2.2.0) sha256=a9b18d2c187755584b607e914d3409a8483dc180edb852d10e34f8326ac4c477
   bridgetown-seo-tag (7.0.1) sha256=bc876c646822c392ce14123d111bdc2a62f05f5a14fa86c3d42e269900b02e5b
   bridgetown-sitemap (3.0.3) sha256=f6abfa501cab5f12690f818a4f7a82def1ce353d4b3581226821f5c1fa5ffbc8
   bridgetown-svg-inliner (3.0.0) sha256=03d68674c0bece298935b9d82782f68846f9d94d3033212fc7872b9de6b5632f
@@ -293,7 +291,6 @@ CHECKSUMS
   liquid (5.4.0) sha256=e362448c71cb88683d9c2df2819d7e47da3cdb37f757d0c99e3400d7e0030d40
   listen (3.10.0) sha256=c6e182db62143aeccc2e1960033bebe7445309c7272061979bb098d03760c9d2
   logger (1.7.0) sha256=196edec7cc44b66cfb40f9755ce11b392f21f7967696af15d274dde7edff0203
-  mapping (1.1.3) sha256=2274931d20ecd46eaafdd1e00c58cc7472133b213bcac335cc7733d3c75f4da2
   mini_portile2 (2.8.9) sha256=0cd7c7f824e010c072e33f68bc02d85a00aeb6fce05bb4819c03dfd3c140c289
   net-http (0.9.1) sha256=25ba0b67c63e89df626ed8fac771d0ad24ad151a858af2cc8e6a716ca4336996
   nio4r (2.7.5) sha256=6c90168e48fb5f8e768419c93abb94ba2b892a1d0602cb06eef16d8b7df1dca1
@@ -333,7 +330,7 @@ CHECKSUMS
   rubocop-rake (0.7.1) sha256=3797f2b6810c3e9df7376c26d5f44f3475eda59eb1adc38e6f62ecf027cbae4d
   ruby-progressbar (1.13.0) sha256=80fc9c47a9b640d6834e0dc7b3c94c9df37f08cb072b7761e4a71e22cff29b33
   runger_style (5.13.1) sha256=0a6f619542d76051140f55fca8d4ce6d3c3d22c80824a5124e80a1835aed9d7f
-  samovar (2.4.1) sha256=c3b91dd0580771e3bc600621c1111f29542529dcffafaac3b6bf068b3f309e80
+  samovar (2.4.2) sha256=4626ef3d8297cb29dc83a17b562ba52e81116d53fcb7b32096bc453926c3e9ae
   securerandom (0.4.1) sha256=cc5193d414a4341b6e225f0cb4446aceca8e50d5e1888743fac16987638ea0b1
   serbea (2.4.1) sha256=ac18f2ca3e1aabc0a15663b94a75fccc21b21b5a37772533cde65fe7c3941db8
   signalize (1.3.1) sha256=1afd7b717cfd17193cea5404a9b694b1adf793f53213c1f9c540c3a2341fa7f8
