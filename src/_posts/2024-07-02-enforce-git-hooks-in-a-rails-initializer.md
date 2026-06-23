@@ -10,13 +10,13 @@ Git has a cool feature called [Git hooks][git-hooks]:
 
 [git-hooks]: https://githooks.com/
 
-For example, I have a [pre-push Git hook][pre-push-hook] script that I want to be run before I push any code up to GitHub for [my website][davidrunger.com]'s repository. This script performs various checks, such as using [Gitleaks][gitleaks] to scan the diff for any secrets (like an API access token) and to abort the push if any such secrets are found. The `pre-push` hook also runs various linters.
+For example, I have a [pre-push Git hook][pre-push-hook] script that I want to be run before I push any code up to GitHub for [my website][davidrunger.com]'s repository. This script performs various checks, such as using [Betterleaks][betterleaks] to scan the diff for any secrets (like an API access token) and to abort the push if any such secrets are found. The `pre-push` hook also runs various linters.
 
 As long as everyone who works on the repository configures their local Git setup to use the repository's Git hooks, then Git will run that `pre-push` check and verify that it passes before Git will actually push any code to GitHub.
 
-[pre-push-hook]: https://github.com/davidrunger/david_runger/blob/295ee53c793fc9975ca8fe2d8b3b5523ecd6cafc/bin/githooks/pre-push
+[pre-push-hook]: https://github.com/davidrunger/david_runger/blob/8e20a1c49595bf48a66682c9e48ce5cc3f892c16/bin/githooks/pre-push
 [davidrunger.com]: https://davidrunger.com/
-[gitleaks]: https://github.com/gitleaks/gitleaks
+[betterleaks]: https://github.com/betterleaks/betterleaks
 
 ## But, how to enforce that Git hooks are used?
 
@@ -56,9 +56,9 @@ end
 
 (You can see the actual source code [here][githooks-check-initializer].)
 
-[githooks-check-initializer]: https://github.com/davidrunger/david_runger/blob/295ee53c793fc9975ca8fe2d8b3b5523ecd6cafc/config/initializers/githooks_check.rb
+[githooks-check-initializer]: https://github.com/davidrunger/david_runger/blob/8e20a1c49595bf48a66682c9e48ce5cc3f892c16/config/initializers/githooks_check.rb
 
-So, if one tries to boot up the Rails app (e.g. `rails server`) without having locally set up the repository's Git hooks, then an error message like this will be printed to stderr, and the app will abort the boot process:
+So, if one tries to boot up the Rails app (e.g. `bin/rails server`) without having locally set up the repository's Git hooks, then an error message like this will be printed to stderr, and the app will abort the boot process:
 
 ```
 ❯ bin/rails server
@@ -93,7 +93,7 @@ Remedying that situation is as simple as executing the provided command at the t
 ❯ git config core.hooksPath bin/githooks
 ```
 
-That tells Git to look in the repository's [`bin/githooks/`][bin-githooks] directory for relevant scripts before and after performing key actions. For example, Git will look for (and run) a script called `pre-push` before pushing, or a `pre-push` script before committing.
+That tells Git to look in the repository's [`bin/githooks/`][bin-githooks] directory for relevant scripts before and after performing key actions. For example, Git will look for (and run) a script called `pre-push` before pushing, or a `pre-commit` script before committing.
 
 [bin-githooks]: https://github.com/davidrunger/david_runger/tree/main/bin/githooks
 
