@@ -2,4 +2,5 @@ allowBuilds:
   '@percy/core': true
   esbuild: true
   '@tailwindcss/oxide': true
+  protobufjs: false
 minimumReleaseAge: 7200 # Wait 5 days before installing new releases.
