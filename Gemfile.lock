@@ -195,7 +195,7 @@ GEM
       lint_roller (~> 1.1)
       rubocop (>= 1.72.1)
     ruby-progressbar (1.13.0)
-    runger_style (5.13.1)
+    runger_style (5.13.2)
       prism (>= 0.24.0)
       rubocop (>= 1.72.0)
     samovar (2.4.1)
@@ -332,7 +332,7 @@ CHECKSUMS
   rubocop-performance (1.26.1) sha256=cd19b936ff196df85829d264b522fd4f98b6c89ad271fa52744a8c11b8f71834
   rubocop-rake (0.7.1) sha256=3797f2b6810c3e9df7376c26d5f44f3475eda59eb1adc38e6f62ecf027cbae4d
   ruby-progressbar (1.13.0) sha256=80fc9c47a9b640d6834e0dc7b3c94c9df37f08cb072b7761e4a71e22cff29b33
-  runger_style (5.13.1) sha256=0a6f619542d76051140f55fca8d4ce6d3c3d22c80824a5124e80a1835aed9d7f
+  runger_style (5.13.2) sha256=7f01c78726399bed399dc7b9d520c747c021ea4e2b2dfa0dabf622a84d47a576
   samovar (2.4.1) sha256=c3b91dd0580771e3bc600621c1111f29542529dcffafaac3b6bf068b3f309e80
   securerandom (0.4.1) sha256=cc5193d414a4341b6e225f0cb4446aceca8e50d5e1888743fac16987638ea0b1
   serbea (2.4.1) sha256=ac18f2ca3e1aabc0a15663b94a75fccc21b21b5a37772533cde65fe7c3941db8
