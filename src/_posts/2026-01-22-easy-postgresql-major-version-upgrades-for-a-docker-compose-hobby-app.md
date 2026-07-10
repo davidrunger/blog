@@ -16,7 +16,7 @@ This upgrade process works well for my **small hobby app**, but it does come wit
 
 It requires some downtime (hopefully just a few minutes), involves manually running commands directly on the server (somewhat violating strict “infrastructure as code” practices), and assumes a relatively small database (mine is currently ~122 MB). For much larger databases or stricter uptime requirements, this approach is likely too slow and too manual.
 
-But if you’re in a similar position — running a personal app and looking for a straightforward, low-risk way to do Postgres major upgrades — this process might be useful to you.
+But if you’re in a similar position - running a personal app and looking for a straightforward, low-risk way to do Postgres major upgrades - this process might be useful to you.
 
 ---
 
@@ -102,7 +102,7 @@ Edit `docker-compose.yml` so that:
 
 - The Postgres image moves from postgres:17.x to postgres:18.x
 - The data volume moves from postgres-data-v17 to postgres-data-v18
-- (Possibly) the volume's mount path moves from `/var/lib/postgresql/data` to `/var/lib/postgresql` — check the [official image docs](https://hub.docker.com/_/postgres) for whatever version you're targeting; see the update note below
+- (Possibly) the volume's mount path moves from `/var/lib/postgresql/data` to `/var/lib/postgresql` - check the [official image docs](https://hub.docker.com/_/postgres) for whatever version you're targeting; see the update note below
 
 Changing the volume name ensures the new Postgres version starts with a completely empty directory, avoiding errors like "The data directory was initialized by PostgreSQL version 17, which is not compatible with this version 18.0".
 
@@ -112,7 +112,7 @@ For example:
 sed -i'' 's/postgres:17.6-alpine/postgres:18.0-alpine/g' docker-compose.yml
 sed -i'' 's/postgres-data-v17:/postgres-data-v18:/g' docker-compose.yml
 
-# You may also need this one — see the update note below.
+# You may also need this one - see the update note below.
 sed -i'' 's|/var/lib/postgresql/data|/var/lib/postgresql|g' docker-compose.yml
 ```
 
@@ -125,9 +125,9 @@ git diff
 
 Nothing should be changed except the Postgres image tag, volume name, and (possibly) mount path in `docker-compose.yml`.
 
-⚠️ **Update (July 2026):** When I first wrote this post, only the image tag and volume *name* needed to change for my 17→18.0 upgrade — the mount path (`/var/lib/postgresql/data`) stayed the same, and that was still true for my subsequent 18.0→18.1 upgrade. But when I later bumped from 18.1 to 18.4 — nominally a *minor* version bump — I hit a breaking change in the Postgres Docker image itself: current builds expect the volume mounted at a bare `/var/lib/postgresql` instead, so Postgres can store data in a version-specific subdirectory (e.g. `/var/lib/postgresql/18/docker`). That meant doing the full dump-and-restore dance again, plus renaming the volume, for what should've been a routine point-release bump.
+⚠️ **Update (July 2026):** When I first wrote this post, only the image tag and volume *name* needed to change for my 17→18.0 upgrade - the mount path (`/var/lib/postgresql/data`) stayed the same, and that was still true for my subsequent 18.0→18.1 upgrade. But when I later bumped from 18.1 to 18.4 - nominally a *minor* version bump - I hit a breaking change in the Postgres Docker image itself: current builds expect the volume mounted at a bare `/var/lib/postgresql` instead, so Postgres can store data in a version-specific subdirectory (e.g. `/var/lib/postgresql/18/docker`). That meant doing the full dump-and-restore dance again, plus renaming the volume, for what should've been a routine point-release bump.
 
-The [official Postgres image's docs](https://hub.docker.com/_/postgres) describe this as a change introduced "in PostgreSQL 18 and above" — i.e., tied to the major version, not any particular minor release. In practice, though, the [Docker image maintainers' implementation of it](https://github.com/docker-library/postgres/pull/1259) kept getting refined for months spanning both before and after Postgres 18.0's actual release (September 2025), so exactly which `18.x` build first started enforcing it isn't a clean, predictable line. My takeaway: before *any* Postgres Docker bump — minor or major — it's worth double-checking the current image docs for the version you're moving to, rather than assuming only major-version bumps can require a new mount path and a fresh volume.
+The [official Postgres image's docs](https://hub.docker.com/_/postgres) describe this as a change introduced "in PostgreSQL 18 and above" - i.e., tied to the major version, not any particular minor release. In practice, though, the [Docker image maintainers' implementation of it](https://github.com/docker-library/postgres/pull/1259) kept getting refined for months spanning both before and after Postgres 18.0's actual release (September 2025), so exactly which `18.x` build first started enforcing it isn't a clean, predictable line. My takeaway: before *any* Postgres Docker bump - minor or major - it's worth double-checking the current image docs for the version you're moving to, rather than assuming only major-version bumps can require a new mount path and a fresh volume.
 
 ### 4. Pre-pull the new Postgres image
 
