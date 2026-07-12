@@ -7,19 +7,19 @@ GEM
     ast (2.4.3)
     base64 (0.3.0)
     bigdecimal (4.1.2)
-    bridgetown (2.2.1)
-      bridgetown-builder (= 2.2.1)
-      bridgetown-core (= 2.2.1)
-      bridgetown-foundation (= 2.2.1)
-      bridgetown-paginate (= 2.2.1)
-    bridgetown-builder (2.2.1)
-      bridgetown-core (= 2.2.1)
-    bridgetown-core (2.2.1)
+    bridgetown (2.2.2)
+      bridgetown-builder (= 2.2.2)
+      bridgetown-core (= 2.2.2)
+      bridgetown-foundation (= 2.2.2)
+      bridgetown-paginate (= 2.2.2)
+    bridgetown-builder (2.2.2)
+      bridgetown-core (= 2.2.2)
+    bridgetown-core (2.2.2)
       addressable (~> 2.4)
       amazing_print (~> 1.2)
       base64 (>= 0.3)
       bigdecimal (>= 3.2)
-      bridgetown-foundation (= 2.2.1)
+      bridgetown-foundation (= 2.2.2)
       csv (~> 3.2)
       erubi (~> 1.9)
       faraday (~> 2.0)
@@ -45,13 +45,13 @@ GEM
       zeitwerk (>= 2.7.3)
     bridgetown-feed (4.0.0)
       bridgetown (>= 1.2.0)
-    bridgetown-foundation (2.2.1)
+    bridgetown-foundation (2.2.2)
       dry-inflector (>= 1.0)
       hash_with_dot_access (~> 2.0)
       inclusive (~> 1.0)
       zeitwerk (~> 2.5)
-    bridgetown-paginate (2.2.1)
-      bridgetown-core (= 2.2.1)
+    bridgetown-paginate (2.2.2)
+      bridgetown-core (= 2.2.2)
     bridgetown-seo-tag (7.0.1)
       bridgetown (>= 1.3)
     bridgetown-sitemap (3.0.3)
@@ -211,7 +211,7 @@ GEM
     streamlined (0.6.2)
       serbea (>= 2.1)
       zeitwerk (~> 2.5)
-    tilt (2.7.0)
+    tilt (2.8.0)
     tsort (0.2.0)
     unicode-display_width (3.2.0)
       unicode-emoji (~> 4.1)
@@ -231,7 +231,7 @@ PLATFORMS
   x86_64-linux-musl
 
 DEPENDENCIES
-  bridgetown (~> 2.2.0)
+  bridgetown (~> 2.2.2)
   bridgetown-feed
   bridgetown-seo-tag
   bridgetown-sitemap
@@ -247,12 +247,12 @@ CHECKSUMS
   ast (2.4.3) sha256=954615157c1d6a382bc27d690d973195e79db7f55e9765ac7c481c60bdb4d383
   base64 (0.3.0) sha256=27337aeabad6ffae05c265c450490628ef3ebd4b67be58257393227588f5a97b
   bigdecimal (4.1.2) sha256=53d217666027eab4280346fba98e7d5b66baaae1b9c3c1c0ffe89d48188a3fbd
-  bridgetown (2.2.1) sha256=b47942fedef55528799ddeb350bd66e369505cae74d5779536c7638be71f69ed
-  bridgetown-builder (2.2.1) sha256=72af89059a75adcd55fb246f1414bf22ded6d498677f5ea06a8b218b7fba5f1b
-  bridgetown-core (2.2.1) sha256=2db48a912f5f7eeedebde7376d6b57209aa2d2cbb5408a13ce2f9f1488fe1dbf
+  bridgetown (2.2.2) sha256=3240782f693c34087ee387cfb5d11036a4ddd4c9bfbfc090e6122d51f50e8a1f
+  bridgetown-builder (2.2.2) sha256=dd07b3d3da84888e34747fefaf3869e7c23689ac5ace33c1ec17e145007b41ae
+  bridgetown-core (2.2.2) sha256=0997587871c7e06a979fd7530fc93f852eededb25cb6ee117e5107acda49ff7d
   bridgetown-feed (4.0.0) sha256=bd41d17f34a8bbaac8db66fe89a91b3959e797a24551ab695e899a89994ae6bb
-  bridgetown-foundation (2.2.1) sha256=f6674833fb8dad316ac5a802ce4f6de8b6f1c454cb8daf98e84e7597f14d44de
-  bridgetown-paginate (2.2.1) sha256=7be66b9e3b6070afc46b0c3e4b9502678c7d08bddf0ea616c620db09ab0e54e8
+  bridgetown-foundation (2.2.2) sha256=7275e87f4d36a09e51bb7c9f7d3b92eac4539b606fb722975edcb4853074df65
+  bridgetown-paginate (2.2.2) sha256=0aa8dffa779b5f53db4a9d7e36c27d7cf2d7c0f9845a1ee2c004296814e8f4fb
   bridgetown-seo-tag (7.0.1) sha256=bc876c646822c392ce14123d111bdc2a62f05f5a14fa86c3d42e269900b02e5b
   bridgetown-sitemap (3.0.3) sha256=f6abfa501cab5f12690f818a4f7a82def1ce353d4b3581226821f5c1fa5ffbc8
   bridgetown-svg-inliner (3.0.0) sha256=03d68674c0bece298935b9d82782f68846f9d94d3033212fc7872b9de6b5632f
@@ -337,7 +337,7 @@ CHECKSUMS
   serbea (2.4.1) sha256=ac18f2ca3e1aabc0a15663b94a75fccc21b21b5a37772533cde65fe7c3941db8
   signalize (1.3.1) sha256=1afd7b717cfd17193cea5404a9b694b1adf793f53213c1f9c540c3a2341fa7f8
   streamlined (0.6.2) sha256=58c73a95d0decd3e4f5739be22be1d629682669d4093829189cb3edf7e332de6
-  tilt (2.7.0) sha256=0d5b9ba69f6a36490c64b0eee9f6e9aad517e20dcc848800a06eb116f08c6ab3
+  tilt (2.8.0) sha256=ba472eb2716fe1e04112d6d219a9dae938ec09a6a1e2ad3ecc7922e79bde3721
   tsort (0.2.0) sha256=9650a793f6859a43b6641671278f79cfead60ac714148aabe4e3f0060480089f
   unicode-display_width (3.2.0) sha256=0cdd96b5681a5949cdbc2c55e7b420facae74c4aaf9a9815eee1087cb1853c42
   unicode-emoji (4.2.0) sha256=519e69150f75652e40bf736106cfbc8f0f73aa3fb6a65afe62fefa7f80b0f80f
