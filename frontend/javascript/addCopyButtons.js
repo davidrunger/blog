@@ -16,7 +16,7 @@ function addCopyButtons() {
     // Create a copy button.
     const copyButton = document.createElement("button");
     copyButton.className = "copy-button h-8";
-    copyButton.title = "Copy Code"
+    copyButton.title = "Copy code"
     copyButton.innerHTML = `
       <svg
         xmlns="http://www.w3.org/2000/svg"
