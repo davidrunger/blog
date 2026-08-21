@@ -5,5 +5,4 @@ allowBuilds:
   protobufjs: false
 minimumReleaseAge: 7200 # Wait 5 days before installing new releases.
 minimumReleaseAgeExclude:
-  - fast-xml-parser@5.7.0
   - image-size@2.0.3
