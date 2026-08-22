@@ -4,40 +4,32 @@ title: Enforce Git hooks in a Rails initializer
 
 ## Git hooks
 
-Git has a cool feature called [Git hooks][git-hooks]:
+Git hooks are scripts that Git runs automatically at points such as before a commit, push, or merge. For example, a [pre-push hook][pre-push-hook] in this site's repository uses [Betterleaks][betterleaks] to scan the outgoing diff for secrets and runs linters. See the [Git hook documentation][git-hooks] for the full list.
 
-> Git Hooks are scripts that Git can execute automatically when certain events occur, such as before or after a commit, push, or merge.
+That feedback is useful only when each contributor's clone is configured to use the hooks stored in the repository.
 
-[git-hooks]: https://githooks.com/
-
-For example, I have a [pre-push Git hook][pre-push-hook] script that I want to be run before I push any code up to GitHub for [my website][davidrunger.com]'s repository. This script performs various checks, such as using [Betterleaks][betterleaks] to scan the diff for any secrets (like an API access token) and to abort the push if any such secrets are found. The `pre-push` hook also runs various linters.
-
-As long as everyone who works on the repository configures their local Git setup to use the repository's Git hooks, then Git will run that `pre-push` check and verify that it passes before Git will actually push any code to GitHub.
+[git-hooks]: https://git-scm.com/docs/githooks
 
 [pre-push-hook]: https://github.com/davidrunger/david_runger/blob/8e20a1c49595bf48a66682c9e48ce5cc3f892c16/bin/githooks/pre-push
-[davidrunger.com]: https://davidrunger.com/
 [betterleaks]: https://github.com/betterleaks/betterleaks
 
-## But, how to enforce that Git hooks are used?
+## The configuration gap
 
-The problem is that, although we can put Git hook scripts in a repo, we cannot enforce that developers actually use them. The nature of git hooks is that one must "opt in" to use them in the configuration of each local copy of a repository, and it's easy to fail to do so. For example, I recently set up a Linux boot on my MacBook. I had previously set up the git hooks for the version of my repository in my Mac operating system, but I didn't think to also set up the git hooks after I then cloned the repository to my fresh Linux OS.
+Git does not automatically use hook scripts committed to a repository; each clone must opt in by setting `core.hooksPath`. Setup documentation can ask contributors to do that, but instructions are easy to miss.
 
-Frequently, a repository's README.md or setup documentation might say something like, "We encourage you to set up this repository's Git hooks, by executing [a certain command]," but developers might ignore or accidentally overlook that instruction, or at some later point they might lose their git configuration and not think to reconfigure the git hooks.
+## Check during Rails boot
 
-## Idea: enforce Git hooks configuration in a Rails initializer
+For a Rails application, an initializer can verify the setting and refuse to boot until it is fixed. That makes a missing one-time setup step visible when a developer first uses the app.
 
-One solution to this conundrum recently occurred to me: put a check in a Rails initializer to verify that the project's git hooks have indeed been configured. If not, then refuse to boot the app.
+This is a usability guardrail, not a security or policy boundary. A developer can bypass Git hooks (for example, with `git push --no-verify`) or change the initializer without booting the app. Checks that must not be bypassed belong in CI or protected server-side controls.
 
-I should note that, unfortunately, this is not a _100%_ foolproof way to ensure that developers configure their git setup to use a project's git hooks. A developer could theoretically modify the project's source code without ever successfully booting up the app. But, realistically speaking, I think that's quite unlikely, at least for a developer who is going to do any substantial amount of work on an application. They're going to need to boot up the app sooner or later.
-
-The solution presented below is nominally Rails-specific (in that it leverages the fact that Rails will automatically load during the boot process any `.rb` file in the `config/initializers/` directory), but it should also be very possible to translate this general approach to other web frameworks (or other types of applications), by hooking into the local development boot process in a similar way.
+The idea is not Rails-specific: an application built with any framework could run an equivalent check during local development startup.
 
 ## The initializer
 
-Here's what my relatively simple initializer looks like (with some minor tweaks):
+Place this in `config/initializers/githooks_check.rb`:
 
 ```rb
-# File: config/initializers/githooks_check.rb
 if (
   Rails.env.local? &&
     ENV['SKIP_GITHOOKS_CHECK'].blank? &&
@@ -58,7 +50,7 @@ end
 
 [githooks-check-initializer]: https://github.com/davidrunger/david_runger/blob/8e20a1c49595bf48a66682c9e48ce5cc3f892c16/config/initializers/githooks_check.rb
 
-So, if one tries to boot up the Rails app (e.g. `bin/rails server`) without having locally set up the repository's Git hooks, then an error message like this will be printed to stderr, and the app will abort the boot process:
+Without the setting, `bin/rails server` prints the following error to standard error and aborts:
 
 ```
 ❯ bin/rails server
@@ -71,33 +63,21 @@ Or, if you must, you can put SKIP_GITHOOKS_CHECK=1 in your .env file.
 Exiting
 ```
 
-## Breaking it down
-
-Here's an explanation of each part of the initializer:
-
-- `Rails.env.local?` checks that we are booting in either the `development` or `test` environment (i.e. not `production`, where Git hooks won't be configured).
-- `ENV['SKIP_GITHOOKS_CHECK'].blank?` gives developers a way to skip this check, if that is necessary for some reason, by setting this environment variable.
-- `ENV['CI'].blank?` checks that the app is not booting in our Continuous Integration (CI) environment (GitHub Actions), because, like `production`, our Git hooks aren't configured there.
-
-If those conditions are all true, then we perform the key part of the check:
-
-- `` `git config core.hooksPath`.strip != 'bin/githooks'``: This checks if the local git repository has _not_ been configured to use the project's `bin/githooks/` directory as the Git hooks path, and, if it hasn't, then we enter the body of the `if` condition.
-
-Within the `if` block, we print a warning stating that the developer doesn't have the repository's Git hooks configured, and providing a command to configure the git hooks. Finally, we abort the boot process, via `exit(1)`. The developer won't be able to boot the app successfully until they make some sort of change (such as, ideally, configuring the git hooks on their machine, using the provided command).
+The conditions limit the check to local, non-CI boots; `SKIP_GITHOOKS_CHECK` provides an escape hatch. The remaining condition verifies that Git uses `bin/githooks`. If it does not, the initializer explains the fix and exits unsuccessfully.
 
 ## Configuring the Git hooks
 
-Remedying that situation is as simple as executing the provided command at the top level of the project directory:
+At the project root, run:
 
 ```
 ❯ git config core.hooksPath bin/githooks
 ```
 
-That tells Git to look in the repository's [`bin/githooks/`][bin-githooks] directory for relevant scripts before and after performing key actions. For example, Git will look for (and run) a script called `pre-push` before pushing, or a `pre-commit` script before committing.
+This tells Git to find hooks in the repository's [`bin/githooks/`][bin-githooks] directory. Git runs `pre-push` before pushing and `pre-commit` before committing, when those executable scripts exist.
 
 [bin-githooks]: https://github.com/davidrunger/david_runger/tree/main/bin/githooks
 
-Having configured the Git hooks, the `rails server` will now boot successfully!:
+Rails can now boot:
 
 ```
 ❯ bin/rails server
@@ -109,4 +89,4 @@ Having configured the Git hooks, the `rails server` will now boot successfully!:
 Use Ctrl-C to stop
 ```
 
-And, when the developer goes to push their code changes up to GitHub, then all of the repository's intended pre-push checks will execute, guarding against secrets being accidentally committed to the source code, and helping to keep code quality high by running several of the project's linting tools.
+Future pushes will also run the repository's pre-push checks locally.
