@@ -1,37 +1,37 @@
 ---
 title: Flaky specs due to ActionCable leakage
-subtitle: A cautionary tale
+subtitle: Isolate broadcasts for every test process
 ---
 
-## A spec setup at risk of flaking
+## When this can happen
 
-If the following are all true of your application, then your tests might flake (i.e. fail randomly).
+Your specs can fail intermittently when all of the following are true:
 
-1. You run tests in parallel (locally and/or in CI)
-3. Your application uses ActionCable with the Redis adapter
-2. Your parallel tests use the same Redis instance (even if different Redis database numbers)
-4. You don't have a `channel_prefix` for the `test` environment in your `config/cable.yml`, or the `channel_prefix` doesn't have any dynamic interpolation
+1. You run tests in parallel (locally and/or in CI).
+2. Your application uses ActionCable with the Redis adapter.
+3. The parallel test processes share a Redis instance, even if they use different Redis databases.
+4. The `test` `channel_prefix` in `config/cable.yml` is not unique to each process.
 
 ## Why this setup causes flakiness
 
-This test setup causes flakiness because Redis's publish/subscribe messaging system is global to a Redis instance. This creates a risk of unintentional interaction between your specs. If **Spec A** triggers an ActionCable update to be broadcast, then that ActionCable update might be received in some other, simultaneously executing **Spec B**. If **Spec B** is a system spec or feature spec, for example, then this ActionCable update might cause a change in the data in the browser, and this unanticipated change to the browser state might cause the spec to fail.
+Redis Pub/Sub channels are shared by every database in an instance. If **Spec A** broadcasts an ActionCable update, a simultaneously running **Spec B** can receive it. In a system or feature spec, that unexpected broadcast can change the browser state and fail the spec.
 
-In a case like this, uncovering the cause of the flakiness can be really tricky, because — no matter how hard you look through the code of **Spec B** — there is nothing there that gives a hint about why the browser UI sometimes seems to update in a seemingly random way that causes the spec to fail. This is because the thing that's causing the unexpected state change actually originates in the code of an entirely different spec. What's more, it's probably pretty random which specs happen to execute at the same time in any given test run. This makes it challenging to reproduce the flakiness/failures with any reliability, adding to the difficulty of investigating the cause of the flakiness.
+The failing spec offers no obvious clue because the broadcast originated in another process. Which specs overlap varies between runs, so the failure can also be difficult to reproduce.
 
-## The solution: use a `channel_prefix` that is unique to each test process
+## Use a unique `channel_prefix` for each test process
 
-Fortunately, ActionCable includes a configuration option — `channel_prefix` — that can prevent this problem, by effectively keeping the ActionCable broadcasts issued by one Rails/RSpec process from being received by tests that are executing in another Rails/RSpec process.
+Set `channel_prefix` to a value that differs for every test process. ActionCable then uses distinct Redis Pub/Sub channels, keeping each process's broadcasts isolated.
 
-In my case, the solution looked like [changing][fix-pr] the `test` section of my `config/cable.yml` from this:
+For example, I [changed][fix-pr] the `test` section of `config/cable.yml` from:
 
-```yml
+```yaml
 test:
   <<: *default
   channel_prefix: david_runger_test
   url: redis://localhost:6379
 ```
 
-to this:
+to:
 
 ```yaml
 test:
@@ -40,12 +40,12 @@ test:
   url: redis://localhost:6379
 ```
 
-Note the addition of the `<%%= ENV['DB_SUFFIX'] %>` ERB interpolation tag at the end of the `channel_prefix`. In my CI test setup, each of the RSpec processes (some of which might execute simultaneously) is provided with a different `DB_SUFFIX` environment variable (such as `_unit`, `_api`, `_feature`, etc.). I'm leveraging that environment variable to ensure that the `channel_prefix` is distinct for each test process, meaning that their ActionCable broadcasts will remain isolated from each other, even when executing in parallel.
+The `<%%= ENV['DB_SUFFIX'] %>` ERB interpolation makes the prefix process-specific. My CI assigns every RSpec process a distinct `DB_SUFFIX`, such as `_unit`, `_api`, or `_feature`.
 
-Here's some relevant Rails documentation about this feature: [Redis Adapter](https://guides.rubyonrails.org/action_cable_overview.html#redis-adapter).
+Rails documents `channel_prefix` for avoiding channel-name collisions when applications share a Redis server: [Redis Adapter](https://guides.rubyonrails.org/action_cable_overview.html#redis-adapter).
+
+## Separate Redis databases do not isolate Pub/Sub
+
+Different Redis database numbers do not solve this problem: Redis Pub/Sub is not scoped to databases. Redis recommends prefixing channel names when they need to be scoped: [Database & Scoping](https://redis.io/docs/latest/develop/pubsub/#database--scoping).
 
 [fix-pr]: https://github.com/davidrunger/david_runger/pull/4586
-
-## Note: Using distinct Redis database numbers will _not_ work
-
-I initially tried to fix this problem in a different (but conceptually similar) way, by using a different Redis database number for each RSpec process. However, that didn't work, because Redis's publish/subscribe functionality (the basis for the ActionCable functionality) is global to all of the databases of a given Redis instance.
