@@ -4,101 +4,39 @@ subtitle: The ease and beauty of Ruby, with the speed of C.
 image: https://david-runger-public-uploads.s3.amazonaws.com/crystal-logo-stacked.png
 ---
 
-## The importance of good tooling
+## Why Crystal?
 
-Having good tooling can be an important part of the software development process. Good tooling can help a developer to operate more quickly/efficiently, and also to get into a flow state. If one's tooling can take care of some of the more mundane aspects of software development, then more of that developer's time, energy, and uninterrupted focus can be spent on the higher-value aspects of software delivery.
+I write many small command-line tools for my own development workflow. For example, my `gform` command fetches a Git repository and rebases the current branch onto the updated `main` branch. It also runs `install-packages-in-background`, another tool that checks dependency lock files and installs any changed dependencies in the background.
 
-## Custom tooling
+Most of my small tools are bash scripts. Bash starts quickly:
 
-Lots of great tooling is available off the shelf, and it's usually best to leverage the work done by others, when it's possible to do so, rather than reinventing the wheel.
-
-However, there are some tools one will want that are unique to one's idiosyncratic workflow, or, for whatever other reason, off-the-shelf tooling might not be available to meet a given need. In these cases, happily, as software developers, we can write our own tooling! I often do.
-
-A lot of the tools that I create for myself are programs that I execute from a terminal, or which are invoked indirectly by some _other_ command that I execute in a terminal.
-
-For example, I often want to pull updates from a GitHub repository down to my local machine, and then rebase my branch onto that updated version of the `main` branch. I do this by executing in my terminal a command that I've written called `gform` (which stands for "git fetch origin and rebase with main").
-
-In addition to updating my branch with the latest version of the `main` branch, this `gform` command also executes another program that I've written, called `install-packages-in-background`, which looks at the project's dependency lock files (the `Gemfile.lock`, `pnpm-lock.yaml`, etc) and checks whether the relevant package installation command (e.g. `bundle install` or `pnpm install`) has ever been executed on my machine for the current version of the dependency lock file. If not, then my `install-packages-in-background` script will execute the relevant package installation command (in the background).
-
-## Which language to use?
-
-Which computer language should `install-packages-in-background` be written in? Since it's just a command that I am running on my local machine, I could write it in pretty much any language that I can install on my machine.
-
-## Consideration: startup time
-
-As a primarily Ruby and JavaScript developer, I always have those languages installed on my development machine, so those are options. However, one downside of these languages is that they have a somewhat noticeable startup time. Running about the most minimal Ruby program imaginable takes over 130 milliseconds on my machine:
-
-```
-❯ time ruby -e 'puts("Hi!")'
-Hi!
-ruby -e 'puts("Hi!")'  0.09s user 0.04s system 99% cpu 0.132 total
-```
-
-Node is even a little bit slower, taking about 200 ms to start up:
-
-```
-❯ time node -e 'console.log("Hi!")'
-Hi!
-node -e 'console.log("Hi!")'  0.18s user 0.07s system 122% cpu 0.205 total
-```
-
-A few hundred milliseconds might not seem like a lot, but it adds up, and the time spent waiting for a relatively slow Ruby or Node program to execute risks interfering with one's development flow state.
-
-## Bash: the fast solution?
-
-Another (and typically much faster-executing) option is to use a shell scripting language, such as bash. And, indeed, I do write the vast majority of my little development tooling scripts in bash. Bash starts up much more quickly than Ruby or Node:
-
-```
+```console
 ❯ time bash -c 'echo "Hi!"'
 Hi!
 bash -c 'echo "Hi!"'  0.00s user 0.00s system 89% cpu 0.006 total
 ```
 
-Just six milliseconds!
+Bash becomes unpleasant for more complicated logic, though, and it lacks a package ecosystem comparable to those of many general-purpose languages. Ruby and Node are more expressive, but their startup time is noticeable for frequently invoked tools. On my machine, even minimal programs took about 130 milliseconds with Ruby and 200 milliseconds with Node.
 
-## Bash: not fun for complicated logic
+I also tried Lua, which starts as quickly as bash and has a package manager, but its limited standard library left me implementing basic functionality that I expected the language to provide.
 
-However, while bash can do a lot, I don't find it very pleasant to work with when it comes to performing any sort of semi-complicated logic.
+A compiled language offered fast programs and richer language features, but introduced a different inconvenience: I would need to recompile each tool after changing its source and make the resulting binary available on my `PATH`.
 
-## Bash: no package system to lean on
+ChatGPT and I devised a setup that handles both tasks automatically. Although I use it with Crystal, the same approach should work with other compiled languages such as Rust or Go.
 
-Additionally, the bash scripting language doesn't really have a package management framework, so we don't really have the ability to easily leverage the work of others. Our bash scripts must be pretty self contained and do everything themselves. Bash scripts can call out to other programs, but there aren't generally libraries that we can load into our script to provide useful functionality.
-
-## What about Lua?
-
-Another language that I experimented with recently is Lua. It has a fast startup time that is comparable to bash's (just a few milliseconds) and a package management system (LuaRocks). I was hopeful that I'd find the language/syntax more pleasant and natural to work with than bash.
-
-However, after trying Lua, I found it's standard library to be quite limited. As a result, I had to manually implement some basic functionality (such as merging two dictionaries) that I had hoped/expected would be built into the language.
-
-## Could we use a compiled language?
-
-All of the languages that I have named so far are _interpreted languages_ (as opposed to compiled ones). I never thought that a compiled programming language would work well for writing the sort of developer tooling programs that I've been discussing, for the simple reason that I'd have to remember and bother with recompiling the program into a binary whenever I make a change to the program, and I'd also need to make that compiled binary available as an executable program on my `PATH` (so that they can be invoked easily from the command line or from other programs).
-
-In contrast, when writing a program in an interpreted language, all that I have to do is to put the program's source code in a location on my `PATH`. Then, whenever I edit the program source code, that new version of the program is immediately "live" on my system, without any additional steps on my part. The relative hassle of a compiled language didn't seem worthwhile to me.
-
-## The big idea: automatically compiled programs
-
-However, that all changed, when ChatGPT and I collaborated on a way to automatically compile and make available on my `PATH` the executable binary output of compiled development tooling programs. This opened up a whole new world of compiled programming language options that I could now consider for writing development tooling programs, without the hassle that had made me shy away from compiled languages for this purpose up until now.
-
-## My go-to compiled language: Crystal
+## Why I chose Crystal
 
 ![Crystal logo](https://david-runger-public-uploads.s3.amazonaws.com/crystal.png)
 
-The compiled language that I decided to try out first as a language in which to write development tooling is **[Crystal](https://crystal-lang.org/)**. Crystal is a compiled language with a syntax that is very similar to Ruby (with the main difference being that Crystal sometimes requires type annotations). Crystal programs are extremely fast, often comparable to (or even faster than) a raw C implementation. Crystal programs also use much less memory than an equivalent Ruby program would.
+**[Crystal](https://crystal-lang.org/)** is a compiled, statically typed language with Ruby-inspired syntax. Its type inference means that explicit type annotations are often unnecessary, while its compiler produces efficient native programs.
 
-Crystal also has extremely helpful and well formatted error messages, and [the documentation][crystal-docs] is useful and easy to read.
+I also appreciate Crystal's clear compiler errors and approachable [documentation][crystal-docs]. It gives me much of what I enjoy about writing Ruby while producing fast, memory-efficient executables.
 
-[crystal-docs]: https://crystal-lang.org/api/master/
-
-Overall, I find it a pleasure to work with, and I feel lucky that there exists a language with the ease and beauty of Ruby and yet also with the speed of C and light memory usage.
-
-## These concepts apply to any compiled language
-
-The focus of this blog post is not about Crystal, though. What I want to focus on is the framework that ChatGPT and I came up with to automatically compile my Crystal development tooling programs and make them available on my `PATH`. Indeed, there is very little that is Crystal-specific in what I'm about to share, and I think that this framework/process could easily be adapted to almost any other compiled language, such as Rust or Go.
+[crystal-docs]: https://crystal-lang.org/reference/
 
 ## Example: my `unique-union` program
 
-To illustrate concretely, let's look at one particular program that I have written in Crystal, called `unique-union`. This program takes two arguments, and prints the set of words in those arguments, deduplicated and sorted. Example:
+As an example, my `unique-union` program combines the words in two arguments, removes duplicates, and sorts the result:
 
 ```
 ❯ unique-union "wave hello bye" "hello ocean wave"
@@ -108,9 +46,9 @@ ocean
 wave
 ```
 
-(This might seem kind of pointless, but it's useful within one of my other tools.)
+I use this small program as a building block in another tool.
 
-That functionality is implemented in Crystal as such:
+Here is its Crystal source:
 
 ```cr
 #!/usr/bin/env crystal
@@ -134,24 +72,22 @@ end
 
 ## Setting up automatic Crystal compilation
 
-What we want is some way to automatically convert that Crystal source code into an executable binary.
+Two shell scripts make the source available as a command and compile it when necessary.
 
 ### Part 1: `symlink-crystal-programs`
 
-Part of the trick comes from adding this line to my `~/.zshrc` file:
+My `~/.zshrc` runs `symlink-crystal-programs` in the background whenever I open a terminal:
 
 ```sh
 # Set up (in the background) symlinks for programs written in Crystal
 { ( symlink-crystal-programs >&3 & ) } 3>&1
 ```
 
-Most of that syntax is just to make the command execute without printing any output, and to do so in the background (so that it doesn't slow down my shell startup time). The key point is that, whenever I open a new terminal tab, `symlink-crystal-programs` will execute, which is the following bash program.
+The surrounding shell syntax preserves standard output while letting the script run asynchronously, so it does not delay shell startup.
 
-It iterates over all of the Crystal source code files in my `crystal-programs` source directory, and, for each program, creates a symlink that is available in my `PATH` and which points to another bash program (`run-crystal-program`) that will automatically compile the Crystal source code into a binary, as needed.
+The script recreates a directory of extensionless symlinks, one for each `.cr` source file. That directory is on my `PATH`, and every symlink points to the same `run-crystal-program` script:
 
-The end result will look like this:
-
-```
+```console
 ❯ tree ~/bin/crystal-symlinks
 /home/david/bin/crystal-symlinks
 ├── install-packages-in-background -> /home/david/code/dotfiles/bin/run-crystal-program
@@ -160,7 +96,7 @@ The end result will look like this:
 └── unique-union -> /home/david/code/dotfiles/bin/run-crystal-program
 ```
 
-Here's the script that does it:
+Here is `symlink-crystal-programs`:
 
 ```sh
 #!/usr/bin/env bash
@@ -181,14 +117,14 @@ for crystal_program_source_file in "$crystal_programs_source_code_directory"/*.c
 done
 ```
 
-The symlinks drop the `.cr` extension. That way, although I write the source code in a file called `unique-union.cr`, I will be able to invoke the compiled program from my command line (or other programs) via simply `unique-union`.
+Dropping the `.cr` extension lets me invoke `unique-union.cr` as simply `unique-union`.
 
 ### Part 2: `run-crystal-program`
 
-The final piece of the puzzle is the `run-crystal-program` bash script referenced as the target of the symlinks above. That script does two main things:
+The shared `run-crystal-program` script:
 
-1. compiles (or recompiles) the relevant Crystal source code into an executable binary, if no binary has yet been compiled, or if the source code or the `run-crystal-program` script itself has been modified more recently than the binary was compiled
-2. executes the compiled binary, forwarding along any arguments
+1. Compiles the relevant Crystal source if the binary does not exist or is older than either the source or this runner.
+2. Executes the binary with the supplied arguments.
 
 ```sh
 #!/usr/bin/env bash
@@ -224,24 +160,22 @@ fi
 "$binary_file" "$@"
 ```
 
-## Review and overview
+## How the pieces fit together
 
-This all might seem a little bit complicated, and it is. There are three different directories involved, each with a different purpose:
+The setup uses three directories:
 
-1. `~/code/dotfiles/crystal-programs/`: This is where the Crystal source code lives, e.g. `~/code/dotfiles/crystal-programs/unique-union.cr`.
-2. `~/bin/crystal-symlinks/`: This directory (which is on my `PATH`) contains symlinks, one for each Crystal program. These symlinks all point to the `run-crystal-program` script.
-3. `~/bin/crystal-binaries/`: This is where the actual compiled binaries created from the Crystal source code are stored. These compiled binaries will be invoked by `run-crystal-program`.
+1. `~/code/dotfiles/crystal-programs/` stores the Crystal source.
+2. `~/bin/crystal-symlinks/`, which is on my `PATH`, stores a symlink for each program.
+3. `~/bin/crystal-binaries/` stores the compiled executables.
 
-So, when I invoke `unique-union` from my command line, that refers to the `~/bin/crystal-symlinks/unique-union` file (since `~/bin/crystal-symlinks` is on my path). That file is actually just a symlink to the shell script `~/code/dotfiles/bin/run-crystal-program`, so that is what actually executes when invoking `unique-union`. `run-crystal-program` ensures that there is an up-to-date compiled binary located at `~/bin/crystal-binaries/unique-union`, and then executes that binary, passing along any arguments.
+Invoking `unique-union` resolves to `~/bin/crystal-symlinks/unique-union`, which runs `run-crystal-program`. The runner derives the source and binary paths from the invoked name, compiles an up-to-date binary if needed, and executes it.
 
 ## Downsides
 
-Overall, after ironing out a kink or two, this system seems to work pretty smoothly, but there are some downsides.
+The first invocation after a source change pauses for a few seconds while `run-crystal-program` compiles the executable. Later invocations reuse that binary and are fast.
 
-One downside is that, after I change any Crystal source file, then the next time that I invoke that command, there is a significant delay (a few seconds), as `run-crystal-program` compiles an up-to-date version of the executable binary. However, thereafter, `run-crystal-program` simply invokes the already-compiled binary, and so the compiled program executes quickly.
+Even with a current binary, the runner adds roughly eight milliseconds of shell overhead. Pointing each command directly to its binary would avoid that cost, but would also sacrifice automatic compilation.
 
-Another downside is that, even when an up-to-date binary has already been compiled, this system does waste a little bit of time executing the `run-crystal-program` bash script, which probably adds somewhere on the order of 8 milliseconds or so to the overall execution time. It would be faster if, instead of going through the `run-crystal-program` bash script, calling `unique-union` would directly invoke the compiled Crystal binary. However, then I'd lose the benefit of automatic compilation and the assurance that I'm always running a binary that has been compiled using the latest version of the Crystal source code.
+## Conclusion
 
-## Summary: I'm happy 🙂
-
-For me, the benefits of this framework outweigh these downsides, and I really enjoy being able to write some of my development tooling programs using Crystal, and then executing the resulting, automatically compiled, quick, and low-memory compiled binaries.
+For me, those costs are worthwhile: I can write development tools in Crystal and run current, compiled versions without a manual build step.
