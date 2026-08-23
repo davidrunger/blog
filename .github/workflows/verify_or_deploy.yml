@@ -45,6 +45,11 @@ jobs:
       - name: Run RuboCop
         run: bin/rubocop --format clang
 
+      - name: Check post images
+        run: bin/check-post-images
+        env:
+          POST_IMAGE_BASE_SHA: ${{ github.event_name == 'pull_request' && github.event.pull_request.base.sha || '' }}
+
       - name: Install JavaScript Packages
         run: pnpm install
 

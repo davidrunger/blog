@@ -19,6 +19,11 @@ File.open(path, 'w+') do |file|
     ---
     title: #{title}
     subtitle:
+    image:
+      path:
+      width: 1200
+      height: 630
+      alt:
     ---
   FRONTMATTER
 end
