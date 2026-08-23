@@ -1,0 +1,234 @@
+#!/usr/bin/env ruby
+# frozen_string_literal: true
+
+require 'date'
+require 'ipaddr'
+require 'net/http'
+require 'open3'
+require 'resolv'
+require 'tempfile'
+require 'uri'
+require 'yaml'
+
+# Lint every post on every run. CI sets POST_IMAGE_BASE_SHA for pull requests,
+# which additionally downloads new image references in added or modified posts.
+class PostImageChecker
+  EXPECTED_WIDTH = 1200
+  EXPECTED_HEIGHT = 630
+  POST_GLOB = 'src/_posts/*.md'
+  REQUIRED_IMAGE_KEYS = %w[alt height path width].freeze
+
+  def run
+    errors = lint_errors
+
+    if pull_request?
+      errors.concat(dimension_errors)
+    end
+
+    if errors.empty?
+      puts('Post images are valid.')
+    else
+      warn(errors.join("\n"))
+      exit(1)
+    end
+  end
+
+  private
+
+  def lint_errors
+    Dir.glob(POST_GLOB).flat_map do |path|
+      data = frontmatter(path)
+      image_lint_errors(path, data)
+    rescue => error
+      ["#{path}: #{error.message}"]
+    end
+  end
+
+  def dimension_errors
+    changed_posts.filter_map do |path|
+      image_path = image_path(frontmatter(path)['image'])
+      if image_path && new_image_reference?(path, image_path)
+        width, height = dimensions(image_path)
+        if width != EXPECTED_WIDTH || height != EXPECTED_HEIGHT
+          "#{path}: image is #{width}x#{height}; expected #{EXPECTED_WIDTH}x#{EXPECTED_HEIGHT}"
+        end
+      end
+    rescue StandardError => error
+      "#{path}: could not validate image: #{error.message}"
+    end
+  end
+
+  def pull_request?
+    if base_sha.empty?
+      puts('Skipping image downloads because POST_IMAGE_BASE_SHA is not set.')
+      false
+    else
+      true
+    end
+  end
+
+  def base_sha
+    ENV.fetch('POST_IMAGE_BASE_SHA', '')
+  end
+
+  def frontmatter(path)
+    parse_frontmatter(File.read(path))
+  end
+
+  def parse_frontmatter(contents)
+    match = contents.match(/\A---\s*\n(.*?)\n---\s*(?:\n|\z)/m)
+    if !match
+      raise('missing YAML frontmatter')
+    end
+
+    YAML.safe_load(match[1], permitted_classes: [Date, Time]) || {}
+  rescue Psych::Exception => error
+    raise("invalid YAML frontmatter: #{error.message}")
+  end
+
+  def image_lint_errors(path, data)
+    if data.key?('image')
+      image = data['image']
+
+      if blank?(image)
+        ["#{path}: image must not be blank"]
+      elsif !image.is_a?(Hash)
+        []
+      else
+        missing_keys = REQUIRED_IMAGE_KEYS.reject { |key| image.key?(key) }
+        blank_keys =
+          image.filter_map do |key, value|
+            if blank?(value)
+              key
+            end
+          end
+
+        errors = missing_keys.map { |key| "#{path}: image.#{key} is missing" }
+        errors.concat(blank_keys.map { |key| "#{path}: image.#{key} must not be blank" })
+      end
+    else
+      []
+    end
+  end
+
+  def blank?(value)
+    value.nil? ||
+      (value.is_a?(String) && value.strip.empty?) ||
+      (value.respond_to?(:empty?) && value.empty?)
+  end
+
+  def changed_posts
+    stdout, stderr, status = Open3.capture3(
+      'git',
+      'diff',
+      '--name-only',
+      '--diff-filter=AM',
+      '-z',
+      base_sha,
+      '--',
+      'src/_posts/',
+    )
+    unless status.success?
+      raise("could not find changed posts: #{stderr.strip}")
+    end
+
+    stdout.split("\0").select { |path| File.fnmatch?(POST_GLOB, path) }
+  end
+
+  def image_path(image)
+    path = image.is_a?(Hash) ? image['path'] : image
+    unless blank?(path)
+      path
+    end
+  end
+
+  def new_image_reference?(path, current_image_path)
+    stdout, _stderr, status = Open3.capture3('git', 'show', "#{base_sha}:#{path}")
+
+    if status.success?
+      previous_image_path = image_path(parse_frontmatter(stdout)['image'])
+      current_image_path != previous_image_path
+    else
+      true
+    end
+  end
+
+  def dimensions(path)
+    uri = URI.parse(path)
+
+    if uri.absolute?
+      Tempfile.create(['post-image', File.extname(uri.path)]) do |file|
+        download(uri, file)
+        file_dimensions(file.path)
+      end
+    else
+      local_path = path.start_with?('/') ? File.join('src', path) : path
+      file_dimensions(local_path)
+    end
+  rescue URI::InvalidURIError => error
+    raise("invalid image path: #{error.message}")
+  end
+
+  def download(uri, file)
+    unless uri.is_a?(URI::HTTPS)
+      raise('image URL must use HTTPS')
+    end
+
+    http = Net::HTTP.new(uri.host, uri.port)
+    http.ipaddr = public_ip_address(uri.host)
+    http.open_timeout = 10
+    http.read_timeout = 20
+    http.use_ssl = true
+
+    response = http.request(Net::HTTP::Get.new(uri.request_uri))
+
+    case response
+    when Net::HTTPSuccess
+      file.binmode
+      file.write(response.body)
+      file.flush
+    when Net::HTTPRedirection
+      raise('image URL redirects; image.path must link directly to the image')
+    else
+      raise("download returned HTTP #{response.code}")
+    end
+  end
+
+  def file_dimensions(path)
+    stdout, stderr, status = Open3.capture3('file', '--brief', path)
+    unless status.success?
+      raise("file could not inspect image: #{stderr.strip}")
+    end
+
+    width_and_height = stdout.scan(/\b(\d+)\s*x\s*(\d+)\b/).last
+    unless width_and_height
+      raise("file did not report image dimensions: #{stdout.strip}")
+    end
+
+    width_and_height.map { |value| Integer(value) }
+  rescue Errno::ENOENT
+    raise('could not inspect image: file command is not available')
+  end
+
+  def public_ip_address(host)
+    addresses = Resolv.getaddresses(host)
+    if addresses.empty?
+      raise("could not resolve #{host}")
+    end
+
+    address =
+      addresses.find do |candidate|
+        ip = IPAddr.new(candidate)
+        !(ip.private? || ip.loopback? || ip.link_local?)
+      end
+    unless address
+      raise("#{host} does not resolve to a public IP address")
+    end
+
+    address
+  end
+end
+
+if $PROGRAM_NAME == __FILE__
+  PostImageChecker.new.run
+end
