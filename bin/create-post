@@ -10,8 +10,9 @@
 title = ARGV[0]
 
 date = Time.now.strftime('%F')
-slugified_title = title.downcase.tr(' ', '-')
+slugified_title = title.downcase.gsub(/[^A-Za-z0-9._~-]+/, '-')
 filename = "#{date}-#{slugified_title}.md"
+filename.squeeze!('-')
 path = "src/_posts/#{filename}"
 
 File.open(path, 'w+') do |file|
