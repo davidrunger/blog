@@ -2,7 +2,7 @@
 title: Easy memoization in Crystal with the 'memoization' shard
 subtitle: Concise, argument-aware method caching without the boilerplate.
 image:
-  path: https://david-runger-public-uploads.s3.us-east-1.amazonaws.com/memoization-fox.jpg
+  path: https://david-runger-public-uploads.s3.us-east-1.amazonaws.com/skedjewel.png
   width: 1200
   height: 630
   alt: a fox memoizing stuff
