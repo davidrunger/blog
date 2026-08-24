@@ -5,8 +5,10 @@ image:
   path: https://david-runger-public-uploads.s3.us-east-1.amazonaws.com/memoization-fox.jpg
   width: 1200
   height: 630
-  alt: a fox memoizing stuff
+  alt: A fox memoizing stuff
 ---
+
+![A fox memoizing stuff](https://david-runger-public-uploads.s3.us-east-1.amazonaws.com/memoization-fox.jpg)
 
 I was surprised that I couldn't find an established Crystal shard for memoization with the API I wanted. Rubyists have plenty of options, including [MemoWise](https://github.com/panorama-ed/memo_wise), [Memoist](https://github.com/matthewrudy/memoist), and the memoization support in [`dry-core`](https://github.com/dry-rb/dry-core). In Crystal, my searches mostly turned up snippets or code embedded in a larger framework.
 
