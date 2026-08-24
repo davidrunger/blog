@@ -144,6 +144,10 @@ pre {
   line-height: 1.15;
 }
 
+article > .highlighter-rouge + .highlighter-rouge {
+  margin-top: 1rem;
+}
+
 code {
   padding: 0.25rem;
 }
