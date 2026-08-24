@@ -32,7 +32,7 @@ ChatGPT and I devised a setup that handles both tasks automatically. Although I 
 
 I also appreciate Crystal's clear compiler errors and approachable [documentation][crystal-docs]. It gives me much of what I enjoy about writing Ruby while producing fast, memory-efficient executables.
 
-[crystal-docs]: https://crystal-lang.org/reference/
+[crystal-docs]: https://crystal-lang.org/reference/latest/
 
 ## Example: my `unique-union` program
 
