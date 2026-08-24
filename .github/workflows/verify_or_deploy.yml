@@ -45,6 +45,9 @@ jobs:
       - name: Run RuboCop
         run: bin/rubocop --format clang
 
+      - name: Check post filenames
+        run: bin/check-post-filenames
+
       - name: Check post images
         run: bin/check-post-images
         env:

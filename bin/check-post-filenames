@@ -1,0 +1,31 @@
+#!/usr/bin/env ruby
+# frozen_string_literal: true
+
+class PostFilenameChecker
+  POST_GLOB = 'src/_posts/*.md'
+  URL_SAFE_FILENAME = /\A[A-Za-z0-9._~-]+\z/
+
+  def run
+    invalid_paths =
+      Dir.glob(POST_GLOB).reject do |path|
+        File.basename(path).match?(URL_SAFE_FILENAME)
+      end
+
+    if invalid_paths.empty?
+      puts('Post filenames are URL-safe.')
+    else
+      warn(invalid_paths.map { |path| error_message(path) }.join("\n"))
+      exit(1)
+    end
+  end
+
+  private
+
+  def error_message(path)
+    "#{path}: filename must contain only URL-safe characters (A-Z, a-z, 0-9, -, ., _, ~)"
+  end
+end
+
+if $PROGRAM_NAME == __FILE__
+  PostFilenameChecker.new.run
+end
