@@ -32,7 +32,7 @@ def expensive_value : String
 end
 ```
 
-That adds state-management boilerplate to a method whose meaningful job is simply to calculate a value. It also requires more careful handling when `nil` or `false` is valid; otherwise, the calculation can run again on every call.
+However, that adds state-management boilerplate to a method whose meaningful job is simply to calculate a value. It also requires more careful handling when `nil` or `false` is valid; otherwise, the calculation can run again on every call.
 
 Arguments make manual memoization more cumbersome. Remembering `current_content_sha("README.md")` independently from `current_content_sha("src")` requires a hash keyed by the method's arguments, plus lookup and assignment logic around the actual implementation.
 
