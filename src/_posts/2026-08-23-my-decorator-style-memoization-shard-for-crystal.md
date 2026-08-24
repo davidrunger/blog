@@ -1,5 +1,5 @@
 ---
-title: Easy memoization in Crystal with my 'memoization' shard
+title: My decorator-style memoization shard for Crystal
 subtitle: Concise, argument-aware method caching without the boilerplate.
 image:
   path: https://david-runger-public-uploads.s3.us-east-1.amazonaws.com/memoization-fox.jpg
