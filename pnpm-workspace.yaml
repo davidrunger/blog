@@ -4,5 +4,3 @@ allowBuilds:
   '@tailwindcss/oxide': true
   protobufjs: false
 minimumReleaseAge: 7200 # Wait 5 days before installing new releases.
-minimumReleaseAgeExclude:
-  - image-size@2.0.3
