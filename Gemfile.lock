@@ -61,7 +61,7 @@ GEM
       csv
       nokogiri
     concurrent-ruby (1.3.8)
-    console (1.37.0)
+    console (1.38.0)
       fiber-annotation
       fiber-local (~> 1.1)
       json
@@ -258,7 +258,7 @@ CHECKSUMS
   bridgetown-svg-inliner (3.0.0) sha256=03d68674c0bece298935b9d82782f68846f9d94d3033212fc7872b9de6b5632f
   bundler (4.0.21) sha256=7cbf5499b426076aa16c8d28a59e4c2c3aad5a438402abcd961f0119f29f1dd0
   concurrent-ruby (1.3.8) sha256=b2f1be836e968ccc78ccfce277ea79c72a88633f22306782c16ff23fb415d1e1
-  console (1.37.0) sha256=8093b286c2595a063849c098594fee5155ecc7967d36f3aa8cbe7569c8f3efd7
+  console (1.38.0) sha256=35b82f59130e95e9be6b832d9e539c8b3988fc192e4a8e9a86ab4922f44ad5de
   csv (3.3.6) sha256=aba61e7e507a66f03d45cb1f3c4b6359861c3504038b422962875dce099e4456
   dry-inflector (1.3.1) sha256=7fb0c2bb04f67638f25c52e7ba39ab435d922a3a5c3cd196120f63accb682dcc
   erb (6.0.7) sha256=c5ca6dc25b0ef974a44dc8f59fe847577122483b1968a38dec305c60bf91ee92
