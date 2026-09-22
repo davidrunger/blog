@@ -216,8 +216,8 @@ packages:
     cpu: [x64]
     os: [win32]
 
-  '@grpc/grpc-js@1.14.4':
-    resolution: {integrity: sha512-k9Dj3DV/itK9D06Y8f190Qgop7/Ui+D0njFV3LHMPwPT75DpXLQohE9Wmz0QElrJnzsjB7KPWiKJbOl7IPDArQ==}
+  '@grpc/grpc-js@1.14.5':
+    resolution: {integrity: sha512-7VZM+SVdEcUUqSQeNI3zM8Qs/BhQKZndPo2h5VkYkAM8Iz0wJIa8mKV5ekQGqG8UUsnkQ0NMxIxwkIHYvj0qOw==}
     engines: {node: '>=12.10.0'}
 
   '@grpc/proto-loader@0.8.1':
@@ -994,8 +994,8 @@ packages:
   is-arrayish@0.2.1:
     resolution: {integrity: sha512-zz06S8t0ozoDXMG+ube26zeCTNXcKIPJZJi8hBrF4idCLms4CG9QtK7qBl1boi5ODzFpjswb5JPmHCbMpjaYzg==}
 
-  is-core-module@2.16.2:
-    resolution: {integrity: sha512-evOr8xfXKxE6qSR0hSXL2r3sd7ALj8+7jQEUvPYcm5sgZFdJ+AYzT6yNmJenvIYQBgIGwfwz08sL8zoL7yq2BA==}
+  is-core-module@2.17.0:
+    resolution: {integrity: sha512-J/vG0zBCbIKOQFfufSwyXdMrsohyJIUNkrnmo6WZGzoM7tr/lsbfW5b2BvisL6zsyMzK9UxV9L6c7AoFbyXHOA==}
     engines: {node: '>= 0.4'}
 
   is-docker@2.2.1:
@@ -1640,8 +1640,8 @@ packages:
     resolution: {integrity: sha512-ot0WnXS9fgdkgIcePe6RHNk1WA8+muPa6cSjeR3V8K27q9BB1rTE3R1p7Hv0z1ZyAc8s6Vvv8DIyWf681MAt0w==}
     engines: {node: '>= 0.4'}
 
-  systeminformation@5.33.10:
-    resolution: {integrity: sha512-/NXbMVASt2UbSVgmWto4aBTIAeuYY7zOELpZybmNxqpsrbo5uYHpuEPf5nkyrPng0uG5YOb+Yv6s0FyKY4mDQg==}
+  systeminformation@5.33.11:
+    resolution: {integrity: sha512-CNGk+882EQbsbPzaoxeBcYyx+nk0uTj5JzW8w0EXGSCazndNRAh9SE0V5tyMbdONGKilbIBJsyskF4WmZDk7uA==}
     engines: {node: '>=10.0.0'}
     os: [darwin, linux, win32, freebsd, openbsd, netbsd, sunos, android]
     hasBin: true
@@ -1852,7 +1852,7 @@ snapshots:
   '@esbuild/win32-x64@0.28.2':
     optional: true
 
-  '@grpc/grpc-js@1.14.4':
+  '@grpc/grpc-js@1.14.5':
     dependencies:
       '@grpc/proto-loader': 0.8.1
       '@js-sdsl/ordered-map': 4.4.2
@@ -1928,7 +1928,7 @@ snapshots:
   '@percy/cli-command@1.32.10(supports-color@7.2.0)(typanion@3.14.0)':
     dependencies:
       '@percy/config': 1.32.10
-      '@percy/core': 1.32.10(supports-color@7.2.0)(typanion@3.14.0)
+      '@percy/core': 1.32.10(supports-color@7.2.0)
       '@percy/logger': 1.32.10
       glob-to-regexp: 0.4.1
     optionalDependencies:
@@ -1952,12 +1952,12 @@ snapshots:
       - utf-8-validate
       - worker-loader
 
-  '@percy/cli-doctor@1.32.10(supports-color@7.2.0)(typanion@3.14.0)':
+  '@percy/cli-doctor@1.32.10(supports-color@7.2.0)':
     dependencies:
       '@percy/cli-command': 1.32.10(supports-color@7.2.0)(typanion@3.14.0)
       '@percy/client': 1.32.10(supports-color@7.2.0)
       '@percy/config': 1.32.10
-      '@percy/core': 1.32.10(supports-color@7.2.0)(typanion@3.14.0)
+      '@percy/core': 1.32.10(supports-color@7.2.0)
       '@percy/env': 1.32.10
       '@percy/logger': 1.32.10
       '@percy/monitoring': 1.32.10(supports-color@7.2.0)
@@ -1966,7 +1966,6 @@ snapshots:
     transitivePeerDependencies:
       - bufferutil
       - supports-color
-      - typanion
       - typescript
       - utf-8-validate
       - worker-loader
@@ -2024,7 +2023,7 @@ snapshots:
       '@percy/cli-build': 1.32.10(supports-color@7.2.0)(typanion@3.14.0)
       '@percy/cli-command': 1.32.10(supports-color@7.2.0)(typanion@3.14.0)
       '@percy/cli-config': 1.32.10(supports-color@7.2.0)(typanion@3.14.0)
-      '@percy/cli-doctor': 1.32.10(supports-color@7.2.0)(typanion@3.14.0)
+      '@percy/cli-doctor': 1.32.10(supports-color@7.2.0)
       '@percy/cli-exec': 1.32.10(supports-color@7.2.0)(typanion@3.14.0)
       '@percy/cli-snapshot': 1.32.10(supports-color@7.2.0)(typanion@3.14.0)
       '@percy/cli-upload': 1.32.10(supports-color@7.2.0)(typanion@3.14.0)
@@ -2058,9 +2057,9 @@ snapshots:
     transitivePeerDependencies:
       - typescript
 
-  '@percy/core@1.32.10(supports-color@7.2.0)(typanion@3.14.0)':
+  '@percy/core@1.32.10(supports-color@7.2.0)':
     dependencies:
-      '@grpc/grpc-js': 1.14.4
+      '@grpc/grpc-js': 1.14.5
       '@grpc/proto-loader': 0.8.1
       '@percy/client': 1.32.10(supports-color@7.2.0)
       '@percy/config': 1.32.10
@@ -2082,12 +2081,11 @@ snapshots:
       ws: 8.21.3
       yaml: 2.9.1
     optionalDependencies:
-      '@percy/cli-doctor': 1.32.10(supports-color@7.2.0)(typanion@3.14.0)
+      '@percy/cli-doctor': 1.32.10(supports-color@7.2.0)
       '@percy/cli-pdf': 1.32.10
     transitivePeerDependencies:
       - bufferutil
       - supports-color
-      - typanion
       - typescript
       - utf-8-validate
       - worker-loader
@@ -2105,7 +2103,7 @@ snapshots:
       '@percy/config': 1.32.10
       '@percy/logger': 1.32.10
       '@percy/sdk-utils': 1.32.10(supports-color@7.2.0)
-      systeminformation: 5.33.10
+      systeminformation: 5.33.11
     transitivePeerDependencies:
       - supports-color
       - typescript
@@ -2875,7 +2873,7 @@ snapshots:
 
   is-arrayish@0.2.1: {}
 
-  is-core-module@2.16.2:
+  is-core-module@2.17.0:
     dependencies:
       hasown: 2.0.4
 
@@ -3324,7 +3322,7 @@ snapshots:
   resolve@1.22.12:
     dependencies:
       es-errors: 1.3.0
-      is-core-module: 2.16.2
+      is-core-module: 2.17.0
       path-parse: 1.0.7
       supports-preserve-symlinks-flag: 1.0.0
 
@@ -3484,7 +3482,7 @@ snapshots:
 
   supports-preserve-symlinks-flag@1.0.0: {}
 
-  systeminformation@5.33.10: {}
+  systeminformation@5.33.11: {}
 
   tailwindcss@4.3.3: {}
 
