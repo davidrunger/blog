@@ -70,6 +70,14 @@ jobs:
       - name: Launch server
         run: python3 -m http.server 3000 --bind 127.0.0.1 --directory . > /dev/null 2>&1 &
 
+
+      - name: Set PERCY_BROWSER_EXECUTABLE to system Chrome
+        run: |
+          CHROME_PATH=$(command -v google-chrome || command -v google-chrome-stable)
+          echo "PERCY_BROWSER_EXECUTABLE=$CHROME_PATH" >> $GITHUB_ENV
+          echo "Using Chrome at $CHROME_PATH"
+          $CHROME_PATH --version
+
       - name: Take Percy snapshots
         run: ./node_modules/.bin/percy snapshot snapshots.yml
         env:
