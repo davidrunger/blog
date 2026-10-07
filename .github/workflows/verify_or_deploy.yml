@@ -68,7 +68,7 @@ jobs:
         run: mv output blog
 
       - name: Launch server
-        run: ./node_modules/.bin/serve --no-clipboard > /dev/null &
+        run: python3 -m http.server 3000 --bind 127.0.0.1 --directory . > /dev/null 2>&1 &
 
       - name: Take Percy snapshots
         run: ./node_modules/.bin/percy snapshot snapshots.yml
