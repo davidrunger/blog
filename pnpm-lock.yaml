@@ -28,8 +28,8 @@ importers:
         specifier: ^8.5.30
         version: 8.5.30
       postcss-import:
-        specifier: ^17.0.0
-        version: 17.0.0(postcss@8.5.30)
+        specifier: ^17.0.1
+        version: 17.0.1(postcss@8.5.30)
       postcss-load-config:
         specifier: ^6.0.1
         version: 6.0.1(jiti@2.7.0)(postcss@8.5.30)(yaml@2.9.1)
@@ -1104,8 +1104,8 @@ packages:
     resolution: {integrity: sha512-V7+vQEJ06Z+c5tSye8S+nHUfI51xoXIXjHQ99cQtKUkQqqO1kO/KCJUfZXuB47h/YBlDhah2H3hdUGXn8ie0oA==}
     engines: {node: '>=8.6'}
 
-  postcss-import@17.0.0:
-    resolution: {integrity: sha512-qzVMJhcq39KweT7Fp0HcjE5YxL5yI854Q3CtufxDuZKO9HLQUp2rptB9+U0MIj3pT1ZEVXoqnpeC1mSkfYuz4Q==}
+  postcss-import@17.0.1:
+    resolution: {integrity: sha512-lthLZRa+sMc/xo+lG7TMUvOviwP9ngR0VULnvfXTyOE3JIc0mFrbjcubI6Jx52X+B3IKt9yfp6wwVWE768JezA==}
     engines: {node: '>=22.0.0'}
     peerDependencies:
       postcss: ^8.0.0
@@ -2435,7 +2435,7 @@ snapshots:
 
   picomatch@2.3.2: {}
 
-  postcss-import@17.0.0(postcss@8.5.30):
+  postcss-import@17.0.1(postcss@8.5.30):
     dependencies:
       postcss: 8.5.30
       postcss-value-parser: 4.2.0
