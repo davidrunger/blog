@@ -27,10 +27,22 @@ runs:
         eval "$(ssh-agent -s)"
         ssh-add ~/.ssh/id_ed25519
 
-    - name: Empty existing 'blog/' directory contents on server
+    - name: Stage new 'blog/' directory on server
       shell: bash
-      run: ssh "${{ inputs.SERVER_USER_AND_IP }}" "rm -rf /root/david_runger/blog/{*,.*}"
+      env:
+        BLOG_DEPLOY_ID: ${{ github.run_id }}-${{ github.run_attempt }}
+      run: |
+        ssh "${{ inputs.SERVER_USER_AND_IP }}" \
+          "rm -rf /root/david_runger-blog-deploys/${BLOG_DEPLOY_ID} && \
+            mkdir -p /root/david_runger-blog-deploys/${BLOG_DEPLOY_ID}"
+        scp -r blog \
+          "${{ inputs.SERVER_USER_AND_IP }}:/root/david_runger-blog-deploys/${BLOG_DEPLOY_ID}/"
 
-    - name: Copy 'blog/' directory to server
+    - name: Publish staged files in place
       shell: bash
-      run: scp -r blog "${{ inputs.SERVER_USER_AND_IP }}:/root/david_runger"
+      env:
+        BLOG_DEPLOY_ID: ${{ github.run_id }}-${{ github.run_attempt }}
+      run: |
+        ssh "${{ inputs.SERVER_USER_AND_IP }}" \
+          "BLOG_DEPLOY_ID='${BLOG_DEPLOY_ID}' bash -s" \
+          < bin/deploy/publish-staged-blog

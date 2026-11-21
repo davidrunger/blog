@@ -1,6 +1,6 @@
 ---
 title: Mocking external requests in Rails feature tests
-subtitle: WebMock for the test browser
+subtitle: WebMock-like request stubbing in browser tests
 ---
 
 Need to test a redirect to an external service without contacting it? Intercept the request in the browser that Capybara drives.

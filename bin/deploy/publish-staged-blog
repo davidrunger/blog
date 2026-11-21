@@ -1,0 +1,26 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+blog_directory=/root/david_runger/blog
+staging_directory="/root/david_runger-blog-deploys/${BLOG_DEPLOY_ID}/blog"
+
+mkdir -p "$blog_directory"
+
+while IFS= read -r -d '' staged_file; do
+  relative_path="${staged_file#"$staging_directory"/}"
+  destination="$blog_directory/$relative_path"
+  mkdir -p "$(dirname "$destination")"
+  temporary_file="$destination.blog-deploy-${BLOG_DEPLOY_ID}"
+  cp -p -- "$staged_file" "$temporary_file"
+  mv -f -- "$temporary_file" "$destination"
+done < <(find "$staging_directory" -type f -print0)
+
+while IFS= read -r -d '' live_file; do
+  relative_path="${live_file#"$blog_directory"/}"
+  if [[ ! -f "$staging_directory/$relative_path" ]]; then
+    rm -f -- "$live_file"
+  fi
+done < <(find "$blog_directory" -type f -print0)
+
+rm -rf "/root/david_runger-blog-deploys/${BLOG_DEPLOY_ID}"
