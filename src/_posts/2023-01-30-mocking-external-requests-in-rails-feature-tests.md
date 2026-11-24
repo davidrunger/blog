@@ -3,19 +3,16 @@ title: Mocking external requests in Rails feature tests
 subtitle: WebMock-like request stubbing in browser tests
 ---
 
-Need to test a redirect to an external service without contacting it? Intercept the request in the browser that Capybara drives.
+Do you need to test a redirect to an external service without contacting it? You can intercept and stub the request in the browser that Capybara drives.
 
 Here is the relevant part of a Cuprite feature spec that verifies a Google OAuth redirect:
 
 ```rb
 context 'when OmniAuth test mode is disabled', :permit_all_external_requests do
   around do |spec|
-    original_omni_auth_test_mode = OmniAuth.config.test_mode
-    OmniAuth.config.test_mode = false
-
-    spec.run
-  ensure
-    OmniAuth.config.test_mode = original_omni_auth_test_mode
+    OmniAuth.config.with(test_mode: false) do
+      spec.run
+    end
   end
 
   context 'when Google responds with "This is Google OAuth."' do
@@ -47,7 +44,7 @@ end
 
 `browser.network.intercept` pauses requests, and the `:request` handler either supplies a fake response or lets the request proceed. The URL matcher is deliberately narrow: the assertion only proves the browser reached Google's OAuth authorization URL when it displays the supplied content. No request reaches Google.
 
-The `:permit_all_external_requests` metadata is specific to this test suite's request policy. Keep or replace it with the equivalent configuration in your application. OmniAuth test mode must be disabled because it otherwise skips the external redirect; the `ensure` restores the original setting even when the example fails.
+The `:permit_all_external_requests` metadata is specific to this test suite's request policy. Keep or replace it with the equivalent configuration in your application. OmniAuth test mode must be disabled because it otherwise skips the external redirect. Active Support's `Object#with` temporarily disables test mode and restores its original setting even when the example fails.
 
 ## Why browser interception?
 
